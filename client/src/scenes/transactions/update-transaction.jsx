@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
+import { serverUrl } from "../../index";
 
 const UpdateTransaction = () => {
     const [id, setId] = useState('');
@@ -9,7 +10,7 @@ const UpdateTransaction = () => {
     const [clientName, setClientName] = useState('');
     const updateData = () => {
 
-        axios.put(`http://localhost:3001/transactions/${id}`, {
+        axios.put(`${serverUrl()}/transactions/${id}`, {
             id,
             benefit,
             businessName,

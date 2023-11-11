@@ -28,3 +28,6 @@ root.render(
     </BrowserRouter>
   </WagmiConfig>
 );
+export const serverUrl = () => {
+    return process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : 'https://server-vies.onrender.com'
+}

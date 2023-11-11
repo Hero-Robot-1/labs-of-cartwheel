@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button } from 'semantic-ui-react';
 import { useNavigate } from 'react-router-dom';
+import { serverUrl } from "../../index";
 
 const Transaction = () => {
     const { address, isConnected } = useAccount();
@@ -31,7 +32,7 @@ const Transaction = () => {
         }];
     const [APIData, setAPIData] = useState([]);
     useEffect(() => {
-        axios.get(`http://localhost:3001/transactions`)
+        axios.get(`${serverUrl()}/transactions`)
             .then((response) => {
                 setAPIData(response.data.transactions);
             })

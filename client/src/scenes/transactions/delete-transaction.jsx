@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
+import { serverUrl } from "../../index";
 
 const DeleteTransaction = () => {
     const [id, setId] = useState('');
     const deleteData = () => {
 
-        axios.delete(`http://localhost:3001/transactions/${id}`, {
+        axios.delete(`${serverUrl()}/transactions/${id}`, {
             id
         });
     }

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
+import { serverUrl } from "../../index";
 
 const CreateTransaction = () => {
     const [benefit, setBenefit] = useState('');
     const [businessName, setBusinessName] = useState('');
     const [clientName, setClientName] = useState('');
     const postData = () => {
-        axios.post(`http://localhost:3001/transactions`, {
+        axios.post(`${serverUrl()}/transactions`, {
             benefit,
             businessName,
             clientName
