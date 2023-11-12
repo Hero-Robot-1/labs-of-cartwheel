@@ -1,12 +1,11 @@
-import { db } from '../models/index.js';
+import { db } from "../models/index.js";
 
 const Transaction = db.transactions;
 
 export const createTransaction = (req, res) => {
-
   if (!req.body.benefit) {
     res.status(400).send({
-      message: "Content can not be empty!"
+      message: "Content can not be empty!",
     });
     return;
   }
@@ -14,36 +13,33 @@ export const createTransaction = (req, res) => {
   const transactionParams = {
     benefit: req.body.benefit,
     businessName: req.body.businessName,
-    clientName: req.body.clientName
+    clientName: req.body.clientName,
   };
 
   Transaction.create(transactionParams)
-    .then(data => {
+    .then((data) => {
       res.send({
-        transaction: data
-      })
+        transaction: data,
+      });
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
-        message:
-          err.message
+        message: err.message,
       });
     });
-
 };
 
 export const listTransactions = (req, res) => {
-
   Transaction.findAll({})
-    .then(data => {
+    .then((data) => {
+      console.log(data);
       res.send({
-        transactions: data
+        transactions: data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
-        message:
-          err.message
+        message: err.message,
       });
     });
 };
@@ -52,47 +48,46 @@ export const updateTransaction = (req, res) => {
   const id = req.params.id;
 
   Transaction.update(req.body, {
-    where: { id: id }
+    where: { id: id },
   })
-    .then(num => {
+    .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Transaction was updated successfully."
+          message: "Transaction was updated successfully.",
         });
       } else {
         res.send({
-          message: `Cannot update Transaction with id=${id}`
+          message: `Cannot update Transaction with id=${id}`,
         });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
-        message: "Error updating Transaction with id=" + id
+        message: "Error updating Transaction with id=" + id,
       });
     });
-
 };
 
 export const deleteTransaction = (req, res) => {
   const id = req.params.id;
 
   Transaction.destroy({
-    where: { id: id }
+    where: { id: id },
   })
-    .then(num => {
+    .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Transaction was deleted successfully!"
+          message: "Transaction was deleted successfully!",
         });
       } else {
         res.send({
-          message: `Cannot delete Transaction with id=${id}`
+          message: `Cannot delete Transaction with id=${id}`,
         });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
-        message: "Could not delete Transaction with id=" + id
+        message: "Could not delete Transaction with id=" + id,
       });
     });
 };
