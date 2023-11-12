@@ -24,10 +24,7 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD,
   {
     host: process.env.DB_HOST,
-    //production:     dialect: "postgres",
-    dialect: "mysql",
-
-    port: 3306,
+    dialect: "postgres",
     pool: {
       max: 5,
       min: 0,
