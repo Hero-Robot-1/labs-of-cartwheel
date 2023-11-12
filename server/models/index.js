@@ -4,15 +4,24 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+// tokenID, User address, business name, business benefits ,amount , timestamp 
+
+
 const Transaction = (sequelize) => {
   return sequelize.define("transaction", {
+    tokenId:{
+      type: STRING
+    },
+    cost: {
+      type: STRING,
+    },
     benefit: {
       type: STRING,
     },
     businessName: {
       type: STRING,
     },
-    clientName: {
+    timestamp: {
       type: STRING,
     },
   });

@@ -16,6 +16,11 @@ const Transaction = () => {
   const columns = [
     { field: "id", headerName: "ID" },
     {
+      field: "tokenId",
+      headerName: "tokenId",
+      flex: 1,
+    },
+    {
       field: "benefit",
       headerName: "Benefit",
       flex: 1,
@@ -26,14 +31,21 @@ const Transaction = () => {
       flex: 1,
     },
     {
-      field: "clientName",
-      headerName: "Client Name",
+      field: "cost",
+      headerName: "Cost",
+      flex: 1,
+    },
+  
+    {
+      field: "timestamp",
+      headerName: "timestamp",
       flex: 1,
     },
   ];
   const [APIData, setAPIData] = useState([]);
   useEffect(() => {
     axios.get(`${serverUrl()}/transactions`).then((response) => {
+      console.log("this is the response ", response);
       setAPIData(response.data.transactions);
     });
   }, []);
@@ -48,10 +60,10 @@ const Transaction = () => {
       {isConnected ? <div>Hello , This is your wallet address: {address}</div> : null}
 
       <Button onClick={handleCreateClick} type="submit">
-        Create AAA
+        Create New Transaction //// 
       </Button>
       <Button onClick={handleUpdateClick} type="submit">
-        Update Transaction
+        Update Transaction ////
       </Button>
       <Button onClick={handleDeleteClick} type="submit">
         Delete Transaction

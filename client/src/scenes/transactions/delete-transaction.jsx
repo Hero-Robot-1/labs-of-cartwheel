@@ -16,7 +16,7 @@ const DeleteTransaction = () => {
             <Form className="delete-form">
                 <Form.Field>
                     <label>ID to Delete</label>
-                    <input placeholder='ID' onChange={(e) => setId(e.target.value)}/>
+                    <input placeholder='ID' style={{ color: 'black' }} onChange={(e) => setId(e.target.value)}/>
                 </Form.Field>
 
                 <Button onClick={deleteData} type='submit'>Delete</Button>
