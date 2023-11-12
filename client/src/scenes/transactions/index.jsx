@@ -48,7 +48,7 @@ const Transaction = () => {
       {isConnected ? <div>Hello , This is your wallet address: {address}</div> : null}
 
       <Button onClick={handleCreateClick} type="submit">
-        Create Transaction
+        Create AAA
       </Button>
       <Button onClick={handleUpdateClick} type="submit">
         Update Transaction
