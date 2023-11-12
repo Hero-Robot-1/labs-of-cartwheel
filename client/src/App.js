@@ -10,6 +10,11 @@ import Transaction from "./scenes/transactions";
 import CreateTransaction from "./scenes/transactions/create-transaction";
 import DeleteTransaction from "./scenes/transactions/delete-transaction";
 import UpdateTransaction from "./scenes/transactions/update-transaction";
+
+import CreateBenefits from "./scenes/team/create-buisnessBenefits";
+import DeleteBenefit from "./scenes/team/delete-buisnessBenefits";
+import UpdateBenefit from "./scenes/team/update-buisnessBenefits";
+
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -42,6 +47,9 @@ function App() {
               <Route path="/create-form" element={<CreateTransaction />} />
               <Route path="/update-form" element={<UpdateTransaction />} />
               <Route path="/delete-form" element={<DeleteTransaction />} />
+              <Route path="/create-form-B" element={<CreateBenefits />} />
+              <Route path="/update-form-B" element={<UpdateBenefit />} />
+              <Route path="/delete-form-B" element={<DeleteBenefit />} />
             </Routes>
           </main>
         </div>

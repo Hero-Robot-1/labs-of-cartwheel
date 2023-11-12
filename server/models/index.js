@@ -4,9 +4,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// tokenID, User address, business name, business benefits ,amount , timestamp 
-
-
 const Transaction = (sequelize) => {
   return sequelize.define("transaction", {
     tokenId:{
@@ -24,6 +21,23 @@ const Transaction = (sequelize) => {
     timestamp: {
       type: STRING,
     },
+  });
+};
+
+const BuisnessBenefits = (sequelize) => {
+  return sequelize.define("buisnessBenefits", {
+    clubName: {
+      type: STRING,
+    },
+    businessName: {
+      type: STRING,
+    },
+    benefit: {
+      type: STRING,
+    },
+    timestamp: {
+      type: STRING,
+    }
   });
 };
 
@@ -56,5 +70,6 @@ const dbConnector = {};
 
 dbConnector.sequelize = sequelize;
 dbConnector.transactions = Transaction(sequelize);
+dbConnector.buisnessBenefits = BuisnessBenefits(sequelize);
 
 export const db = dbConnector;
