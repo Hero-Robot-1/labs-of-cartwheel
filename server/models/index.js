@@ -6,15 +6,38 @@ dotenv.config();
 
 const Transaction = (sequelize) => {
   return sequelize.define("transaction", {
+    tokenId:{
+      type: STRING
+    },
+    cost: {
+      type: STRING,
+    },
     benefit: {
       type: STRING,
     },
     businessName: {
       type: STRING,
     },
-    clientName: {
+    timestamp: {
       type: STRING,
     },
+  });
+};
+
+const BuisnessBenefits = (sequelize) => {
+  return sequelize.define("buisnessBenefits", {
+    clubName: {
+      type: STRING,
+    },
+    businessName: {
+      type: STRING,
+    },
+    benefit: {
+      type: STRING,
+    },
+    timestamp: {
+      type: STRING,
+    }
   });
 };
 
@@ -47,5 +70,6 @@ const dbConnector = {};
 
 dbConnector.sequelize = sequelize;
 dbConnector.transactions = Transaction(sequelize);
+dbConnector.buisnessBenefits = BuisnessBenefits(sequelize);
 
 export const db = dbConnector;

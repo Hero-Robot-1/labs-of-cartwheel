@@ -3,11 +3,11 @@ import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
 import { serverUrl } from "../../index";
 
-const DeleteTransaction = () => {
+const DeleteBenefit = () => {
     const [id, setId] = useState('');
     const deleteData = () => {
 
-        axios.delete(`${serverUrl()}/transactions/${id}`, {
+        axios.delete(`${serverUrl()}/buisnessBenefits/${id}`, {
             id
         });
     }
@@ -25,4 +25,4 @@ const DeleteTransaction = () => {
     )
 }
 
-export default DeleteTransaction;
+export default DeleteBenefit;

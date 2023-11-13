@@ -3,22 +3,20 @@ import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
 import { serverUrl } from "../../index";
 
-const UpdateTransaction = () => {
+const UpdateBenefit = () => {
     const [id, setId] = useState('');
     const [benefit, setBenefit] = useState('');
     const [businessName, setBusinessName] = useState('');
-    const [cost, setCost] = useState('');
-    const [tokenID, setTokenID] = useState('');
-    const [timestamp, setTimestamp] = useState('');
+    const [clubName, setClubName] = useState('');
+    const [Timestamp, setTimestamp] = useState('');
     const updateData = () => {
 
-        axios.put(`${serverUrl()}/transactions/${id}`, {
+        axios.put(`${serverUrl()}/buisnessBenefits/${id}`, {
             id,
+            clubName,
             benefit,
             businessName,
-            cost, 
-            tokenID,
-            timestamp
+            Timestamp
         });
     }
     return (
@@ -33,12 +31,8 @@ const UpdateTransaction = () => {
                 <input placeholder='Business Name' style={{ color: 'black' }} onChange={(e) => setBusinessName(e.target.value)} />
             </Form.Field>
             <Form.Field>
-                <label>Cost</label>
-                <input placeholder='Cost' style={{ color: 'black' }} onChange={(e) => setCost(e.target.value)} />
-            </Form.Field>
-            <Form.Field>
-                <label>TokenID</label>
-                <input placeholder='TokenID' style={{ color: 'black' }} onChange={(e) => setTokenID(e.target.value)} />
+                <label>Club Name</label>
+                <input placeholder='Club' style={{ color: 'black' }} onChange={(e) => setClubName(e.target.value)} />
             </Form.Field>
             <Form.Field>
                 <label>Timestamp</label>
@@ -51,4 +45,4 @@ const UpdateTransaction = () => {
     )
 }
 
-export default UpdateTransaction;
+export default UpdateBenefit;

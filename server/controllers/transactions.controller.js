@@ -11,9 +11,12 @@ export const createTransaction = (req, res) => {
   }
 
   const transactionParams = {
+    tokenId: req.body.tokenId,
+    cost: req.body.cost,
     benefit: req.body.benefit,
     businessName: req.body.businessName,
-    clientName: req.body.clientName,
+    timestamp: req.body.timestamp,
+    
   };
 
   Transaction.create(transactionParams)

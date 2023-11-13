@@ -3,13 +3,21 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Team from "./scenes/team";
-import Invoices from "./scenes/invoices";
-import Contacts from "./scenes/contacts";
+// import Contacts from "./scenes/members";
 import Dashboard from "./scenes/dashboard";
 import Transaction from "./scenes/transactions";
 import CreateTransaction from "./scenes/transactions/create-transaction";
 import DeleteTransaction from "./scenes/transactions/delete-transaction";
 import UpdateTransaction from "./scenes/transactions/update-transaction";
+
+// import Benefits from "./scenes/benefits";
+import Members from "./scenes/members"; 
+
+
+import CreateBenefits from "./scenes/team/create-buisnessBenefits";
+import DeleteBenefit from "./scenes/team/delete-buisnessBenefits";
+import UpdateBenefit from "./scenes/team/update-buisnessBenefits";
+
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -18,6 +26,11 @@ function App() {
   const [walletIsConnected, setWalletIsConnected] = useState(false);
   const [walletAddress, setWalletAddress] = useState("");
   const [walletData, setWalletData] = useState("0");
+
+  // events for the get NFT button 
+  const [eventResult, setEventResult] = useState(null); // State to store event data
+  const [isLoadingEvent, setIsLoadingEvent] = useState(false); // Loading state for event data
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
@@ -34,14 +47,38 @@ function App() {
               setWalletAddress={setWalletAddress}
             />
             <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/invoices" element={<Invoices />} />
+              <Route path="/" element={
+              <Dashboard
+               walletIsConnected={walletIsConnected}
+               setWalletIsConnected={setWalletIsConnected}
+               setWalletData={setWalletData}
+               walletData={walletData}
+               setWalletAddress={setWalletAddress}
+               eventResult={eventResult}
+               setEventResult={setEventResult}
+               isLoadingEvent={isLoadingEvent}
+               setIsLoadingEvent={setIsLoadingEvent}
+               isPopupVisible={isPopupVisible}
+               setIsPopupVisible={setIsPopupVisible}
+
+              />} />
+              <Route path="/team" element={<Team
+                walletIsConnected={walletIsConnected}
+                setWalletIsConnected={setWalletIsConnected}
+                setWalletData={setWalletData}
+                walletData={walletData}
+                setWalletAddress={setWalletAddress}
+               
+
+              />} />
+              <Route path="/members" element={<Members />} />
               <Route path="/transactions" element={<Transaction />} />
               <Route path="/create-form" element={<CreateTransaction />} />
               <Route path="/update-form" element={<UpdateTransaction />} />
               <Route path="/delete-form" element={<DeleteTransaction />} />
+              <Route path="/create-form-B" element={<CreateBenefits />} />
+              <Route path="/update-form-B" element={<UpdateBenefit />} />
+              <Route path="/delete-form-B" element={<DeleteBenefit />} />
             </Routes>
           </main>
         </div>

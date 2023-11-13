@@ -3,21 +3,18 @@ import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
 import { serverUrl } from "../../index";
 
-const UpdateTransaction = () => {
+const CreateBenefits = () => {
     const [id, setId] = useState('');
     const [benefit, setBenefit] = useState('');
     const [businessName, setBusinessName] = useState('');
-    const [cost, setCost] = useState('');
-    const [tokenID, setTokenID] = useState('');
+    const [clubName, setClubName] = useState('');
     const [timestamp, setTimestamp] = useState('');
-    const updateData = () => {
-
-        axios.put(`${serverUrl()}/transactions/${id}`, {
+    const postData = () => {
+        axios.post(`${serverUrl()}/buisnessBenefits`, {
             id,
+            clubName,
             benefit,
             businessName,
-            cost, 
-            tokenID,
             timestamp
         });
     }
@@ -25,30 +22,26 @@ const UpdateTransaction = () => {
         <div>
         <Form className="create-form">
             <Form.Field>
-                <label>Benefit</label>
-                <input placeholder='Benefit' style={{ color: 'black' }} onChange={(e) => setBenefit(e.target.value)} />
+                <label>Club name</label>
+                <input placeholder='club name ' style={{ color: 'black' }} onChange={(e) => setClubName(e.target.value)} />
             </Form.Field>
             <Form.Field>
                 <label>Business Name</label>
                 <input placeholder='Business Name' style={{ color: 'black' }} onChange={(e) => setBusinessName(e.target.value)} />
             </Form.Field>
             <Form.Field>
-                <label>Cost</label>
-                <input placeholder='Cost' style={{ color: 'black' }} onChange={(e) => setCost(e.target.value)} />
-            </Form.Field>
-            <Form.Field>
-                <label>TokenID</label>
-                <input placeholder='TokenID' style={{ color: 'black' }} onChange={(e) => setTokenID(e.target.value)} />
+                <label>Benefit</label>
+                <input placeholder='benefit' style={{ color: 'black' }} onChange={(e) => setBenefit(e.target.value)} />
             </Form.Field>
             <Form.Field>
                 <label>Timestamp</label>
                 <input placeholder='Timestamp' style={{ color: 'black' }} onChange={(e) => setTimestamp(e.target.value)} />
             </Form.Field>
 
-                <Button onClick={updateData} type='submit'>Submit</Button>
-            </Form>
-        </div>
+            <Button onClick={postData} type='submit'>Submit</Button>
+        </Form>
+    </div>
     )
 }
 
-export default UpdateTransaction;
+export default CreateBenefits;

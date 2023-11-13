@@ -17,8 +17,8 @@ const WalletConnect = ({
 
   const { address, isConnected } = useAccount();
   const REACT_APP_CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
-
-  const getTokenIdByAddress = useContractRead({
+  setWalletAddress(address);
+  const { data } = useContractRead({
     abi: NFTContractABI,
     address: REACT_APP_CONTRACT_ADDRESS,
     functionName: "getTokenIdByAddress",
@@ -26,16 +26,18 @@ const WalletConnect = ({
     enabled: isConnected,
 
     onSuccess() {
-      console.log("token ID in wallet address:", getTokenIdByAddress.data?.toString());
-      setWalletAddress(address);
-      setWalletData(getTokenIdByAddress.data?.toString());
+      console.log("token ID in wallet address:", data?.toString());
+      console.log("walletAddress: ", walletAddress, address);
+
+      setWalletData(data?.toString());
     },
     onError(error) {
       console.log("get token ID Error", error);
+      setWalletData("0");
     },
   });
-  const { disconnect } = useDisconnect();
 
+  const { disconnect } = useDisconnect();
   if (walletIsConnected) {
     return (
       <div
@@ -65,7 +67,7 @@ const WalletConnect = ({
       }}
     >
       <IconButton>
-        <WalletIcon />
+        <button>Connect wallet</button>
       </IconButton>
     </div>
   );
