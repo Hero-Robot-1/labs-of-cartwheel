@@ -8,8 +8,8 @@ const UpdateTransaction = () => {
     const [benefit, setBenefit] = useState('');
     const [businessName, setBusinessName] = useState('');
     const [cost, setCost] = useState('');
-    const [TokenID, setTokenID] = useState('');
-    const [Timestamp, setTimestamp] = useState('');
+    const [tokenID, setTokenID] = useState('');
+    const [timestamp, setTimestamp] = useState('');
     const updateData = () => {
 
         axios.put(`${serverUrl()}/transactions/${id}`, {
@@ -17,8 +17,8 @@ const UpdateTransaction = () => {
             benefit,
             businessName,
             cost, 
-            TokenID,
-            Timestamp
+            tokenID,
+            timestamp
         });
     }
     return (
