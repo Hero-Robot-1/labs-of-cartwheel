@@ -18,7 +18,7 @@ import { serverUrl } from "../../index";
 // benefit
 // timestamp
 
-const BuisnessBenefits = () => {
+const BuisnessBenefits = ({ walletData, walletIsConnected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -94,18 +94,24 @@ const BuisnessBenefits = () => {
 
   return (
     <Box m="20px">
-      <Header title="Benefits" subtitle="Managing the Club Benefits" />
-
+      <Header title="Benefits" subtitle="Club Benefits" />
+      
+      {walletData === "18" ? (
       <Button onClick={handleCreateClick} type="submit">
-        Create New Benefit //// 
+        Create New Benefit ////  
       </Button>
+      ) : null}
+    {walletData === "18" ? (
       <Button onClick={handleUpdateClick} type="submit">
         Update Benefit ////
       </Button>
+     ) : null}
+
+    {walletData === "18" ? (
       <Button onClick={handleDeleteClick} type="submit">
         Delete Benefit
       </Button>
-
+     ) : null}
       <Box
         m="40px 0 0 0"
         height="75vh"

@@ -8,39 +8,39 @@ const ProfileView = ({ walletData }) => {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box mb="25px">
-      <Box display="flex" justifyContent="center" alignItems="center">
-        <img
-          alt="profile-user"
-          width="150px"
-          height="100px"
-          src={`../../assets/lo frayer logo.png`}
-          style={{ cursor: "pointer" }}
-        />
-      </Box>
+    <>
+      {walletData !== undefined ? (
+        <Box mb="25px">
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <img
+              alt="logo-image"
+              width="150px"
+              height="100px"
+              src={`/assets/lofrayer.png`}
+              style={{ cursor: "pointer" }}
+            />
+          </Box>
 
-      <Box textAlign="center">
-        <Typography
-          variant="h2"
-          color={colors.grey[100]}
-          fontWeight="bold"
-          sx={{ m: "10px 0 0 0" }}
-        >
-          {walletData === "0"
-            ? `Some Name : ${walletData}`
-            : walletData === "1"
-            ? `Adi`
-            : `Some User`}
-        </Typography>
-        <Typography variant="h5" color={colors.greenAccent[500]}>
-          {walletData === "0"
-            ? `Guest tokenId : ${walletData}`
-            : walletData === "1"
-            ? `Master tokenId : ${walletData}`
-            : `Trusted user tokenId : ${walletData}`}
-        </Typography>
-      </Box>
-    </Box>
+          <Box textAlign="center">
+            <Typography
+              variant="h2"
+              color={colors.grey[100]}
+              fontWeight="bold"
+              sx={{ m: "10px 0 0 0" }}
+            >
+              {walletData === "0" ? `Join Us :)` : walletData === "18" ? `Club Manager` : `Member`}
+            </Typography>
+            <Typography variant="h5" color={colors.greenAccent[500]}>
+              {walletData === "0"
+                ? null
+                : walletData === "1"
+                ? `Master tokenId : ${walletData}`
+                : `Trusted user tokenId : ${walletData}`}
+            </Typography>
+          </Box>
+        </Box>
+      ) : null}
+    </>
   );
 };
 export default ProfileView;

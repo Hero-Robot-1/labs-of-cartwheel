@@ -4,6 +4,7 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
+// import loFrayerLogo from "../../public/assets/lo frayer logo.png";
 
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -37,7 +38,7 @@ const Sidebar = ({ walletData, walletIsConnected }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selected, setSelected] = useState("Dashboard");
 
-  if (walletData)
+  // if (walletData)
     return (
       <Box
         sx={{
@@ -85,18 +86,20 @@ const Sidebar = ({ walletData, walletIsConnected }) => {
                 </Box>
               )}
             </MenuItem>
+            {/* <img src={loFrayerLogo} alt="Logo" style={{ height: "40px", width: "auto" }} /> */}
 
             {!isCollapsed && walletIsConnected ? (
               <ProfileView walletData={walletData} />
             ) : null}
 
+            {walletIsConnected && walletData !== "0" ? (
             <Box paddingLeft={isCollapsed ? undefined : "10%"}>
               <Typography
                 variant="h6"
                 color={colors.grey[300]}
                 sx={{ m: "15px 0 5px 20px" }}
               >
-                Data
+           
               </Typography>
               <Item
                 title="Dashboard"
@@ -105,27 +108,30 @@ const Sidebar = ({ walletData, walletIsConnected }) => {
                 selected={selected}
                 setSelected={setSelected}
               />
+             
               <Item
-                title="Manage Club"
+                title="Benefits"
                 to="/team"
                 icon={<PeopleOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
-              <Item
+             
+              {/* <Item
                 title="Club Members"
                 to="/contacts"
                 icon={<ContactsOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
-              />
-              <Item
+              /> */}
+              {/* <Item
                 title="Club Usage"
                 to="/invoices"
                 icon={<ReceiptOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
-              />
+              /> */}
+                {walletData === "18" ? (
                 <Item
                     title="Transactions"
                     to="/transactions"
@@ -133,7 +139,9 @@ const Sidebar = ({ walletData, walletIsConnected }) => {
                     selected={selected}
                     setSelected={setSelected}
                 />
+                ) : null}
             </Box>
+              ) : null}
           </Menu>
         </ProSidebar>
       </Box>

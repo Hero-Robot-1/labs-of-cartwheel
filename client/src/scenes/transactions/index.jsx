@@ -57,8 +57,6 @@ const Transaction = () => {
   return (
     <Box m="20px">
       <Header title="Transactions" subtitle="Test List" />
-      {isConnected ? <div>Hello , This is your wallet address: {address}</div> : null}
-
       <Button onClick={handleCreateClick} type="submit">
         Create New Transaction //// 
       </Button>
