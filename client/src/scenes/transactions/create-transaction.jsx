@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, Dropdown, Message } from 'semantic-ui-react';
+import { Button, Form, Message } from 'semantic-ui-react';
 import axios from 'axios';
 import { serverUrl } from "../../index";
 import { Box } from "@mui/material";
@@ -10,7 +10,7 @@ const CreateTransaction = () => {
     const [benefit, setBenefit] = useState('');
     const [businessName, setBusinessName] = useState('');
     const [cost, setCost] = useState('');
-    const [tokenId, setTokenID] = useState(10); // Set tokenID to 10 by default
+    const [tokenId, setTokenID] = useState(10);
     const [timestamp, setTimestamp] = useState('');
     const [businessNames, setBusinessNames] = useState([]);
     const [businessBenefits, setBusinessBenefits] = useState({});
@@ -25,6 +25,16 @@ const CreateTransaction = () => {
                     key: item.businessName,
                     text: item.businessName,
                     value: item.businessName,
+                    content: (
+                        <Button
+                            basic={!businessName || businessName !== item.businessName}
+                            color={businessName === item.businessName ? 'green' : null}
+                            className={businessName === item.businessName ? 'active_2' : null}
+                            onClick={() => handleBusinessNameChange(null, { value: item.businessName })}
+                        >
+                            {item.businessName}
+                        </Button>
+                    ),
                 }));
 
                 // Update the state with the fetched data
@@ -39,13 +49,12 @@ const CreateTransaction = () => {
             .catch((error) => {
                 console.error('Error fetching data:', error);
             });
-    }, []);
+    }, [businessName]);
 
     const handleBusinessNameChange = (e, { value }) => {
         setBusinessName(value);
         // Set the benefit to the relevant benefit for the selected business
         setBenefit(businessBenefits[value]);
-
         // Set the timestamp to the current date and time
         setTimestamp(new Date().toISOString());
     };
@@ -66,20 +75,19 @@ const CreateTransaction = () => {
     return (
         <Box m="20px">
             <Header title="New Member Transaction" subtitle="Enter the user Transaction" />
-            <Dropdown
-                placeholder='Select Business Name:'
-                clearable
-                selection
-                options={businessNames}
-                onChange={handleBusinessNameChange}
-            />
-            <br/>
             <Form className="create-form">
-               
+                <Form.Field>
+                    <label style={{ fontSize: '1.2em' }}>Select Business Name:</label>
+                    <div className="business-buttons">
+                        {businessNames.map((business, index) => (
+                            <React.Fragment key={index}>{business.content}</React.Fragment>
+                        ))}
+                    </div>
+                </Form.Field>
                 <div style={{ marginTop: '10px' }}>
                     <strong>Selected Business: </strong> {businessName}
                     <br />
-                    <strong>Selected Benefit: </strong> {benefit}
+                    <strong>Business Benefit: </strong> {benefit}
                     <br />
                     <strong>User ID: </strong> {tokenId}
                 </div>

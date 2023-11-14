@@ -36,3 +36,13 @@ body,
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.business-buttons {
+  display: flex;
+  gap: 8px; /* Adjust the gap as needed */
+}
+
+.active_2 {
+  background-color: green !important;
+  color: white !important;
+}
