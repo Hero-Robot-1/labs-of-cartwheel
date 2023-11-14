@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";  // Import HashRouter
 import { WagmiConfig, createConfig, configureChains } from "wagmi";
 import { goerli } from "wagmi/chains";
 import { infuraProvider } from "@wagmi/core/providers/infura";
@@ -23,9 +23,9 @@ const config = createConfig({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <WagmiConfig config={config}>
-    <BrowserRouter>
+    <HashRouter>  {/* Use HashRouter instead of BrowserRouter */}
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </WagmiConfig>
 );
 export const serverUrl = () => {

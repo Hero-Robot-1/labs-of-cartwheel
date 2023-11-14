@@ -8,8 +8,8 @@ import Header from "../../components/Header";
 
 const CreateTransaction = () => {
     const location = useLocation();
-    const queryParams = new URLSearchParams(location.search);
-    const tokenIdFromUrl = queryParams.get('tokenId'); 
+    const searchParams = new URLSearchParams(location.search);
+    const tokenIdFromUrl = searchParams.get('tokenId'); 
 
     const [id, setId] = useState('');
     const [benefit, setBenefit] = useState('');
