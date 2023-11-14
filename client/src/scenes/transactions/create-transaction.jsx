@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams,useLocation } from 'react-router-dom';
 import { Button, Form, Message } from 'semantic-ui-react';
 import axios from 'axios';
 import { serverUrl } from "../../index";
@@ -6,11 +7,15 @@ import { Box } from "@mui/material";
 import Header from "../../components/Header";
 
 const CreateTransaction = () => {
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const tokenIdFromUrl = searchParams.get('tokenId'); 
+
     const [id, setId] = useState('');
     const [benefit, setBenefit] = useState('');
     const [businessName, setBusinessName] = useState('');
     const [cost, setCost] = useState('');
-    const [tokenId, setTokenID] = useState(10);
+    const [tokenId, setTokenID] = useState(tokenIdFromUrl || 999);
     const [timestamp, setTimestamp] = useState('');
     const [businessNames, setBusinessNames] = useState([]);
     const [businessBenefits, setBusinessBenefits] = useState({});
@@ -52,29 +57,38 @@ const CreateTransaction = () => {
     }, [businessName]);
 
     const handleBusinessNameChange = (e, { value }) => {
-        setBusinessName(value);
+        
         // Set the benefit to the relevant benefit for the selected business
         setBenefit(businessBenefits[value]);
         // Set the timestamp to the current date and time
         setTimestamp(new Date().toISOString());
+        setBusinessName(value);
     };
 
     const postData = () => {
         // Make the post request
+        axios.post(`${serverUrl()}/transactions`, {
+            id,
+            benefit,
+            businessName,
+            cost,
+            tokenId,
+            timestamp
+        })
 
         // Reset the form values and set the formSubmitted flag to true
         setId('');
         setBenefit('');
         setBusinessName('');
         setCost('');
-        setTokenID(10);
+        setTokenID();
         setTimestamp('');
         setFormSubmitted(true);
     };
 
     return (
         <Box m="20px">
-            <Header title="New Member Transaction" subtitle="Enter the user Transaction" />
+            <Header title="Submit Member Transaction" subtitle="Enter the user Transaction" />
             <Form className="create-form">
                 <Form.Field>
                     <label style={{ fontSize: '1.2em' }}>Select Business Name:</label>
