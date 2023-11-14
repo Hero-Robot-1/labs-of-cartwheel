@@ -8,8 +8,8 @@ import Header from "../../components/Header";
 
 const CreateTransaction = () => {
     const location = useLocation();
-    const searchParams = new URLSearchParams(location.search);
-    const tokenIdFromUrl = searchParams.get('tokenId'); 
+    const queryParams = new URLSearchParams(location.search);
+    const tokenIdFromUrl = queryParams.get('tokenId'); 
 
     const [id, setId] = useState('');
     const [benefit, setBenefit] = useState('');
@@ -58,11 +58,12 @@ const CreateTransaction = () => {
 
     const handleBusinessNameChange = (e, { value }) => {
         
+        setBusinessName(value);
         // Set the benefit to the relevant benefit for the selected business
         setBenefit(businessBenefits[value]);
         // Set the timestamp to the current date and time
         setTimestamp(new Date().toISOString());
-        setBusinessName(value);
+        
     };
 
     const postData = () => {
