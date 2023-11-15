@@ -26,7 +26,7 @@ console.log( "ggdsfdsgsdfgsd");
     })
     .catch((err) => {
       res.status(500).send({
-        message: (err.message, "ttttt"),
+        message: (err.message, "opps "),
       });
     });
 };
@@ -41,7 +41,7 @@ export const listBuisnessBenefits = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:  (err.message, "ttyyyyyttt"),
+        message:  (err.message, "opps cant list busniss"),
       });
     });
 };

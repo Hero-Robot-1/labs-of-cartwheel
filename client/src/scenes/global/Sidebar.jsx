@@ -131,7 +131,7 @@ const Sidebar = ({ walletData, walletIsConnected }) => {
                 selected={selected}
                 setSelected={setSelected}
               /> */}
-                {walletData === "18" ? (
+                {walletData === "1" ? (
                 <Item
                     title="Transactions"
                     to="/transactions"
