@@ -20,8 +20,6 @@ const GetTokenMetaData = (walletData) => {
       fetch(imageLink)
         .then((res) => res.json())
         .then((data) => {
-          console.log("jdata data json: ", data);
-          console.log("jdata image json: ", data?.image);
           setIsLoadingEvent(false);
           if (data?.image) {
             setImageUrl(data?.image);

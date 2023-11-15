@@ -16,7 +16,7 @@ const CreateTransaction = () => {
     const [businessName, setBusinessName] = useState('');
     const [cost, setCost] = useState('');
     const [tokenId, setTokenID] = useState(tokenIdFromUrl || 999);
-    const [timestamp, setTimestamp] = useState('');
+    const [timestamp, setTimestamp] = useState(new Date().toISOString());
     const [businessNames, setBusinessNames] = useState([]);
     const [businessBenefits, setBusinessBenefits] = useState({});
     const [formSubmitted, setFormSubmitted] = useState(false);
@@ -68,6 +68,13 @@ const CreateTransaction = () => {
 
     const postData = () => {
         // Make the post request
+        console.log("post command to send transaction with this data: ", id,
+        benefit,
+        businessName,
+        cost,
+        tokenId,
+        timestamp);
+
         axios.post(`${serverUrl()}/transactions`, {
             id,
             benefit,
@@ -75,6 +82,7 @@ const CreateTransaction = () => {
             cost,
             tokenId,
             timestamp
+            
         })
 
         // Reset the form values and set the formSubmitted flag to true
@@ -82,8 +90,8 @@ const CreateTransaction = () => {
         setBenefit('');
         setBusinessName('');
         setCost('');
-        setTokenID();
-        setTimestamp('');
+        setTokenID(tokenIdFromUrl);
+        setTimestamp(new Date().toISOString());
         setFormSubmitted(true);
     };
 
@@ -111,7 +119,19 @@ const CreateTransaction = () => {
                     <br />
                     <input placeholder='Cost' style={{ color: 'black', fontSize: '1em', marginTop: '5px' }} onChange={(e) => setCost(e.target.value)} />
                 </Form.Field>
-                <Button onClick={postData} type='submit' style={{ fontSize: '1.2em', marginTop: '10px' }}>Submit</Button>
+                <Button
+                onClick={postData}
+                type='submit'
+                size='large' // Increased button size
+                style={{ marginTop: '10px', 
+                border: '1px solid #2185d0' ,
+                backgroundColor: '#2185d0', // Set background color to blue
+                color: 'white', // Set text color to white
+            
+            }} // Added border for a button-like appearance
+            >
+                Submit
+            </Button>
                 {formSubmitted && (
                     <Message positive>
                         <Message.Header>Thank you!</Message.Header>
