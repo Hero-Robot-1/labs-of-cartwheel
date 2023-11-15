@@ -28,13 +28,13 @@ const ProfileView = ({ walletData }) => {
               fontWeight="bold"
               sx={{ m: "10px 0 0 0" }}
             >
-              {walletData === "0" ? `Join Us :)` : walletData === "18" ? `Club Manager` : `Member`}
+              {walletData === "0" ? `Join Us :)` : walletData === "1" ? `Club Manager` : `Member`}
             </Typography>
             <Typography variant="h5" color={colors.greenAccent[500]}>
               {walletData === "0"
                 ? null
                 : walletData === "1"
-                ? `Master tokenId : ${walletData}`
+                ? `Manager tokenId : ${walletData}`
                 : `Trusted user tokenId : ${walletData}`}
             </Typography>
           </Box>

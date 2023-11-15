@@ -96,18 +96,18 @@ const BuisnessBenefits = ({ walletData, walletIsConnected }) => {
     <Box m="20px">
       <Header title="Benefits" subtitle="Club Benefits" />
       
-      {walletData === "18" ? (
+      {walletData === "1" ? (
       <Button onClick={handleCreateClick} type="submit">
         Create New Benefit ////  
       </Button>
       ) : null}
-    {walletData === "18" ? (
+    {walletData === "1" ? (
       <Button onClick={handleUpdateClick} type="submit">
         Update Benefit ////
       </Button>
      ) : null}
 
-    {walletData === "18" ? (
+    {walletData === "1" ? (
       <Button onClick={handleDeleteClick} type="submit">
         Delete Benefit
       </Button>

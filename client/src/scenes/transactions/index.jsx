@@ -56,7 +56,7 @@ const Transaction = () => {
 
   return (
     <Box m="20px">
-      <Header title="Transactions" subtitle="Test List" />
+      <Header title="Transactions" subtitle="View memebers transactions" />
       <Button onClick={handleCreateClick} type="submit">
         Create New Transaction //// 
       </Button>

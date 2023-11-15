@@ -35,8 +35,9 @@ export const createTransaction = (req, res) => {
 export const listTransactions = (req, res) => {
   Transaction.findAll({})
     .then((data) => {
-      console.log(data);
+      console.log("list transactions data:", data);
       res.send({
+
         transactions: data,
       });
     })
