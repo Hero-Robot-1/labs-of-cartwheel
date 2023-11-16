@@ -23,6 +23,8 @@ const Dashboard = ({
   return (
     <div className="flex justify-center">
       <Box m="20px">
+
+        
         {walletIsConnected && walletData === "1" ? ( // club manager 
           <div>
             <Header title="Welcome Club Manager " />
@@ -54,7 +56,7 @@ const Dashboard = ({
           />
           
           </div>
-      ) : walletIsConnected && walletData !== "1" && walletData !== "0" ? ( // club memeber 
+      ) : walletIsConnected && (walletData !== "1" && walletData !== "0" && walletData !== undefined ) ? ( // club memeber 
           <div>
             <Header title="Welcome dear Member " />
             <div>Here you can view your NFT and the club benefits</div>
