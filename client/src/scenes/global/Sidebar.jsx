@@ -7,7 +7,6 @@ import { tokens } from "../../theme";
 // import loFrayerLogo from "../../public/assets/lo frayer logo.png";
 
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
@@ -35,7 +34,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
 const Sidebar = ({ walletData, walletIsConnected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
 
   // if (walletData)

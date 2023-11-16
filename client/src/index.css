@@ -46,3 +46,29 @@ body,
   background-color: green !important;
   color: white !important;
 }
+
+.custom-datagrid .MuiDataGrid-root {
+  border: none;
+}
+
+.custom-datagrid .MuiDataGrid-cell {
+  border-bottom: none;
+}
+
+.custom-datagrid .name-column--cell {
+  color: green; /* Your green color */
+}
+
+.custom-datagrid .MuiDataGrid-columnHeaders {
+  background-color: rgb(103, 103, 203); /* Your blue color */
+  border-bottom: none;
+}
+
+.custom-datagrid .MuiDataGrid-virtualScroller {
+  background-color: rgb(32, 162, 218); /* Your primary color */
+}
+
+.custom-datagrid .MuiDataGrid-footerContainer {
+  border-top: none;
+  background-color: rgb(103, 103, 203); /* Your blue color */
+}

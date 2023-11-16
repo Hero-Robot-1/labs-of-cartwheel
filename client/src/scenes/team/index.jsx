@@ -1,12 +1,10 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataTeam } from "../../data/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
-import { useAccount } from "wagmi";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button } from "semantic-ui-react";
@@ -97,18 +95,51 @@ const BuisnessBenefits = ({ walletData, walletIsConnected }) => {
       <Header title="Benefits" subtitle="Club Benefits" />
       
       {walletData === "1" ? (
-      <Button onClick={handleCreateClick} type="submit">
-        Create New Benefit ////  
+      <Button 
+      style={{
+        marginRight: "10px", // Margin between buttons
+
+        padding: "10px 20px", // Adjust padding as needed
+        borderRadius: "4px", // Square frame with border radius
+        backgroundColor: "#2185d0", // Background color
+        color: "#fff", // Text color
+        border: "2px solid", // Border style
+        borderColor: "#2185d0", // Border color
+      }}
+      onClick={handleCreateClick} type="submit">
+        Create New Benefit  
       </Button>
       ) : null}
     {walletData === "1" ? (
-      <Button onClick={handleUpdateClick} type="submit">
-        Update Benefit ////
+      <Button 
+      style={{
+        marginRight: "10px", // Margin between buttons
+
+        padding: "10px 20px", // Adjust padding as needed
+        borderRadius: "4px", // Square frame with border radius
+        backgroundColor: "#2185d0", // Background color
+        color: "#fff", // Text color
+        border: "2px solid", // Border style
+        borderColor: "#2185d0", // Border color
+      }}
+      onClick={handleUpdateClick} type="submit">
+        Update Benefit
       </Button>
      ) : null}
 
     {walletData === "1" ? (
-      <Button onClick={handleDeleteClick} type="submit">
+      <Button 
+      style={{
+        marginRight: "10px", // Margin between buttons
+
+        padding: "10px 20px", // Adjust padding as needed
+        borderRadius: "4px", // Square frame with border radius
+        backgroundColor: "#2185d0", // Background color
+        color: "#fff", // Text color
+        border: "2px solid", // Border style
+        borderColor: "#2185d0", // Border color
+      }}
+      onClick={handleDeleteClick} type="submit">
         Delete Benefit
       </Button>
      ) : null}
