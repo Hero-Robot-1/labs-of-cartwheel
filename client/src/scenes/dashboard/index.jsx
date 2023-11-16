@@ -32,7 +32,7 @@ const Dashboard = ({
             />
             <BenefitsView
             Header={Header}
-            // serverUrl={serverUrl()}
+            serverUrl={serverUrl()}
 
             />
           </div>
@@ -78,9 +78,7 @@ const Dashboard = ({
                 setWalletData={setWalletData}
                 walletData={walletData}
               />
-              
             </div>
-          
           </>
         )}
           <br/>
