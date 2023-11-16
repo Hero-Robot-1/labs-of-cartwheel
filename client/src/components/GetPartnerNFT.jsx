@@ -24,7 +24,7 @@ const GetPartnerNft = () => {
     setIsPopupVisible(!isPopupVisible);
   };
 
-  const { config } = usePrepareContractWrite({
+  const { config, error } = usePrepareContractWrite({
     address: REACT_APP_CONTRACT_ADDRESS,
     abi: NFTContractABI,
     functionName: "mintNFT",
@@ -50,17 +50,19 @@ const GetPartnerNft = () => {
   return (
     <>
       <button
+       type="button"
+        disabled={error}
         onClick={() => {
-          write();
-          setIsLoadingEvent(true);
+          setIsLoadingEvent(true); // lets start waiting for the event from the contract. WIP - make it after confirm?
+          write?.();
         }}
-        className="bg-green-500 text-white rounded-full py-2 px-4 hover:bg-green-600 focus:outline-none focus:shadow-outline-green active:bg-green-700"
-      >
+        className={`rounded-full py-2 px-4 focus:outline-none focus:shadow-outline-green ${error ? 'bg-gray-400 text-gray-500 cursor-not-allowed' : 'bg-green-500 text-white hover:bg-green-600 active:bg-green-700'}`}
+        >
         Join the club Become Partner
       </button>
-
+      <br/>
       {isLoadingEvent && <p>Loading...</p>}
-
+      {error && <p>Club is no longer accepting memeber, you can ask club manager or buy a memebership from a memeber </p>}
       {isPopupVisible && (
         <div style={popupStyle}>
          <p className="popup-title" style={{ fontSize: "24px", fontWeight: "bold" }}>
