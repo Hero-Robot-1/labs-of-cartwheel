@@ -61,6 +61,11 @@ const Dashboard = ({
             <GetTokenMetaData
             walletData={walletData}
             />
+            <BenefitsView
+            Header={Header}
+            serverUrl={serverUrl()}
+
+            />
           </div>
           
         ) : (
