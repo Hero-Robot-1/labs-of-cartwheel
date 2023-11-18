@@ -112,7 +112,7 @@ const CreateTransaction = () => {
 
     return (
         <Box m="20px">
-            <Header title="Submit Member Transaction" subtitle="Enter the user Transaction" />
+            <Header title="Submit Transaction" subtitle="Enter the Client Transaction" />
             <Form className="create-form">
                 <Form.Field>
                     <label style={{ fontSize: '1.2em' }}>Select Business Name:</label>
@@ -123,14 +123,22 @@ const CreateTransaction = () => {
                     </div>
                 </Form.Field>
                 <div style={{ marginTop: '10px' }}>
-                    <strong>Selected Business: </strong> {businessName}
+                <br />
+                    <strong>Selected Business: </strong> 
                     <br />
-                    <strong>Business Benefit: </strong> {benefit}
+                    {businessName}
                     <br />
-                    <strong>User ID: </strong> {tokenId}
+                    <br />
+                    <strong>Business Benefit: </strong> 
+                    <br />
+                    {benefit}
+                    <br />
+                    <br />
+                    {/* <strong>User ID: </strong> {tokenId} */}
                 </div>
                 <Form.Field>
-                    <label style={{ fontSize: '1.2em' }}>Cost:</label>
+
+                    <label style={{ fontSize: '1.2em' }}>Costumer Bill:</label>
                     <br />
                     <input placeholder='Cost' style={{ color: 'black', fontSize: '1em', marginTop: '5px' }} onChange={(e) => setCost(e.target.value)} />
                 </Form.Field>
@@ -139,7 +147,6 @@ const CreateTransaction = () => {
                 style={{
                     marginRight: "10px", // Margin between buttons
                     marginTop: "10px", // Margin between buttons
-
                     padding: "10px 20px", // Adjust padding as needed
                     borderRadius: "4px", // Square frame with border radius
                     backgroundColor: "#2185d0", // Background color
