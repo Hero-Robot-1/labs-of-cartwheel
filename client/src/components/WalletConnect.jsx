@@ -4,6 +4,8 @@ import WalletIcon from "@mui/icons-material/Wallet";
 import { IconButton } from "@mui/material";
 import NFTContractABI from "../contracts/NFTContract.json"; // Import your contract ABI
 
+
+  
 const WalletConnect = ({
   walletIsConnected,
   setWalletIsConnected,
@@ -37,6 +39,8 @@ const WalletConnect = ({
     },
   });
 
+ 
+
   const { disconnect } = useDisconnect();
   if (walletIsConnected) {
     return (
@@ -58,6 +62,8 @@ const WalletConnect = ({
       </div>
     );
   }
+
+  
   return (
     <div
       onClick={() => {
@@ -66,9 +72,39 @@ const WalletConnect = ({
         console.log("connecting wallet");
       }}
     >
+      <br/>
       <IconButton>
-        <button>Connect wallet</button>
+      <button style={{backgroundColor: '#2196f3', // Blue background color
+        borderRadius: '30px', // Round shape
+        padding: '10px 10px', // Adjust padding as needed
+        color: '#fff', // White text color
+        fontWeight: 'bold',
+        fontSize: "1rem",
+        border: 'none',
+        cursor: 'pointer'}}
+       >Connect Wallet</button>
       </IconButton>
+      <a
+            href="https://metamask.io/download/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button
+              style={{
+                backgroundColor: "#2196f3",
+                borderRadius: "30px",
+                padding: "10px 10px",
+                fontSize: "1rem",
+                color: "#fff",
+                fontWeight: "bold",
+                border: "none",
+                cursor: "pointer",
+                marginLeft: "10px", // Add some space between buttons
+              }}
+            >
+              Download Wallet
+            </button>
+          </a>
     </div>
   );
 };

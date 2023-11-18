@@ -1,6 +1,9 @@
 import { usePrepareContractWrite, useContractWrite, useContractEvent } from "wagmi";
 import NFTContractABI from "../contracts/NFTContract.json";
 import React, { useState } from "react";
+import WalletConnect from "./WalletConnect";
+import Confetti from 'react-confetti'
+
 
 const REACT_APP_CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
 
@@ -58,20 +61,26 @@ const GetPartnerNft = () => {
         }}
         className={`rounded-full py-2 px-4 focus:outline-none focus:shadow-outline-green ${error ? 'bg-gray-400 text-gray-500 cursor-not-allowed' : 'bg-green-500 text-white hover:bg-green-600 active:bg-green-700'}`}
         >
-        Join the club Become Partner
+        Join To Become A Memeber
       </button>
       <br/>
       {isLoadingEvent && <p>Loading...</p>}
       {error && <p>Club is no longer accepting memeber, you can ask club manager or buy a memebership from a memeber </p>}
       {isPopupVisible && (
         <div style={popupStyle}>
+            <Confetti
+            width={500}
+            height={300}
+            />
          <p className="popup-title" style={{ fontSize: "24px", fontWeight: "bold" }}>
       Welcome to the Club!
     </p>
         
           <br/>
-                        Member NFT sent to your Wallet Address, check wallet, you might need to import the NFT to view the Image.
+                        Member NFT sent to your Wallet Address
                         <br/>
+                        <br/>
+                        Reconnect Wallet To View Benfits and Your Personal Memeber NFT
                         <br/>
                         <br/>
                         <br/>
