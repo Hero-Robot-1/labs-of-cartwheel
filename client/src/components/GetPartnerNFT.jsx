@@ -64,7 +64,7 @@ const GetPartnerNft = () => {
         Join To Become A Memeber
       </button>
       <br/>
-      {isLoadingEvent && <p>Loading...</p>}
+      {isLoadingEvent && <p>Loading, Please Wait for The Welcome Pop Up, It might take ap to a minute...</p>}
       {error && <p>Club is no longer accepting memeber, you can ask club manager or buy a memebership from a memeber </p>}
       {isPopupVisible && (
         <div style={popupStyle}>
