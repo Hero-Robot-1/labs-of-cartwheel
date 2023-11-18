@@ -4,7 +4,7 @@ import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import "react-pro-sidebar/dist/css/styles.css";
 import { tokens } from "../../theme";
-// import loFrayerLogo from "../../public/assets/lo frayer logo.png";
+// import loFrayerLogo from "../../assets/lo frayer logo.png";
 
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
@@ -115,21 +115,6 @@ const Sidebar = ({ walletData, walletIsConnected }) => {
                 selected={selected}
                 setSelected={setSelected}
               />
-             
-              {/* <Item
-                title="Club Members"
-                to="/contacts"
-                icon={<ContactsOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              /> */}
-              {/* <Item
-                title="Club Usage"
-                to="/invoices"
-                icon={<ReceiptOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              /> */}
                 {walletData === "1" ? (
                 <Item
                     title="Transactions"

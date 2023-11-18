@@ -6,6 +6,7 @@ import GetTokenMetaData from "../../components/GetTokenMetaData";
 import BenefitsView from "../../components/BenefitsView";
 import { serverUrl } from "../../index";
 
+
 const Dashboard = ({
   walletData,
   walletIsConnected,
@@ -41,8 +42,20 @@ const Dashboard = ({
         )  : walletIsConnected && walletData === "0" ? ( // non memeber 
         <div>
           <div>
-          <Header title="Join the club!" />
-          <div>Get your NFT and enjoy club benefits</div>
+          <Header title="Join the club" />
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <img
+              alt="logo-image"
+              width="1200px"
+              height="500px"
+              src={`/assets/JoinClub.png`}
+              style={{ cursor: "pointer" }}
+            />
+          </Box>
+          <br/>
+          <div>
+          * If you don't have any Goerli tokens, get 100% free tokens <a href="https://goerli-faucet.pk910.de/" style={{ color: 'blue', textDecoration: 'underline' }}> here </a>.
+        </div>          
         </div>
         <br/>
         <br/>
@@ -73,9 +86,17 @@ const Dashboard = ({
         ) : (
           // Add a condition here if needed // wallet is not connected 
           <>
-            <Header title="Join the Club and enjoy" />
-            <div>Please connect wallet to enter Lo Frayerim</div>
+            <Header title="Join the Club and Enjoy" />
             
+            <Box display="flex" justifyContent="center" alignItems="center">
+            <img
+              alt="logo-image"
+              width="1200px"
+              height="500px"
+              src={`/assets/welcome.png`}
+              style={{ cursor: "pointer" }}
+            />
+          </Box>
             <div>
               <WalletConnect
                 walletIsConnected={walletIsConnected}
