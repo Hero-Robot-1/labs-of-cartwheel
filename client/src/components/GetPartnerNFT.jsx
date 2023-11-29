@@ -1,4 +1,4 @@
-import { usePrepareContractWrite, useContractWrite, useContractEvent } from "wagmi";
+import { usePrepareContractWrite, useContractWrite, useContractEvent ,useAccount } from "wagmi";
 import NFTContractABI from "../contracts/NFTContract.json";
 import React, { useState } from "react";
 import WalletConnect from "./WalletConnect";
@@ -18,22 +18,29 @@ const popupStyle = {
   boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.2)",
 };
 
-const GetPartnerNft = () => {
+const GetPartnerNft = ({walletAddress,setWalletAddress}) => {
   const [eventResult, setEventResult] = useState(null);
   const [isLoadingEvent, setIsLoadingEvent] = useState(false);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const { address, isConnected } = useAccount();
 
   const togglePopup = () => {
     setIsPopupVisible(!isPopupVisible);
   };
 
+
+  console.log(address, "walletAddress in the mint fun");
   const { config, error } = usePrepareContractWrite({
     address: REACT_APP_CONTRACT_ADDRESS,
     abi: NFTContractABI,
     functionName: "mintNFT",
+    args: [address],
     onSuccess(data) {
       console.log("Success", data);
+      
     },
+    onError(error){
+    console.log(error, "error with mint");}
   });
 
   useContractEvent({

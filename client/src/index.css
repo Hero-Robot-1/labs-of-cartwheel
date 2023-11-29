@@ -43,9 +43,13 @@ body,
 }
 
 .active_2 {
-  background-color: green !important;
-  color: white !important;
+  background-color: #8BCDCE !important;
+  /* color: green !important; */
+  border-radius: 2px; /* Removed quotes around the value */
+  border: 2px solid green; /* Set border to 2px solid with green color */
+  
 }
+
 
 .custom-datagrid .MuiDataGrid-root {
   border: none;

@@ -41,11 +41,11 @@ const CreateBenefits = () => {
        <Header title="Submit New Club Benefit" subtitle="Lets add a Benefit" />
         <Form className="create-form">
             <Form.Field>
-                <label style={{ marginBottom: '10px' }}>Business Name:   </label>
+                <label style={{ marginBottom: '10px', color: "black" }}>Business Name:   </label>
                 <input placeholder='Enter Business Name' style={{ color: 'black' }} onChange={(e) => setBusinessName(e.target.value)} />
             </Form.Field>
             <Form.Field>
-                <label style={{ marginBottom: '10px' }}>Benefit:   </label>
+                <label style={{ marginBottom: '10px', color: "black" }}>Benefit:   </label>
                 <input placeholder='Enter Benefit' style={{ color: 'black' }} onChange={(e) => setBenefit(e.target.value)} />
             </Form.Field>
             <Button
@@ -63,8 +63,8 @@ const CreateBenefits = () => {
             </Button>
             {formSubmitted && (
                     <Message positive>
-                        <Message.Header>Thank you!</Message.Header>
-                        <p>Your Benefit has been submitted.</p>
+                        <Message.Header  style={{ color: 'black' }}>Thank you!</Message.Header>
+                        <p  style={{ color: 'black' }}>Your Benefit has been submitted.</p>
                     </Message>
                 )}
         </Form>

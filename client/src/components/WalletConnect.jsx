@@ -18,8 +18,9 @@ const WalletConnect = ({
   });
 
   const { address, isConnected } = useAccount();
-  const REACT_APP_CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
   setWalletAddress(address);
+  const REACT_APP_CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
+  
   const { data } = useContractRead({
     abi: NFTContractABI,
     address: REACT_APP_CONTRACT_ADDRESS,

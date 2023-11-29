@@ -54,7 +54,7 @@ const Dashboard = ({
           </Box>
           <br/>
           <div>
-          * If you don't have any Goerli tokens, get 100% free tokens <a href="https://goerli-faucet.pk910.de/" style={{ color: 'blue', textDecoration: 'underline' }}> here </a>.
+          * If you don't have any tokens, get 100% free tokens <a href="https://goerli-faucet.pk910.de/" style={{ color: 'blue', textDecoration: 'underline' }}> here </a>.
         </div>          
         </div>
         <br/>
@@ -66,6 +66,8 @@ const Dashboard = ({
            setIsLoadingEvent={setIsLoadingEvent}
            isPopupVisible={isPopupVisible}
            setIsPopupVisible={setIsPopupVisible}
+           walletAddress={walletAddress}
+           setWalletAddress={setWalletAddress}
           />
           
           </div>

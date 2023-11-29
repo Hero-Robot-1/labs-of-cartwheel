@@ -34,17 +34,32 @@ const CreateTransaction = () => {
               content: (
                 <Button
                   style={{
-                    marginRight: "10px", // Margin between buttons
-                    marginTop: "10px", // Margin between buttons
-                    padding: "5px 10px", // Adjust padding as needed
-                    borderRadius: "2px", // Square frame with border radius
-                    backgroundColor: "#E8F2FA", // Background color
-                    color: "#2185d0", // Text color
-                    border: "2px solid", // Border style
-                    borderColor: "#2185d0", // Border color
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                    width: '100px',
+                    height: '100px',
+                    background: '#FBDCD9',
+                    marginRight: '20px',
+                    marginTop: '10px', // Margin between buttons
+                    padding: '5px 10px', // Adjust padding as needed
+                    backgroundColor: '#8BCDCE', // Background color
+                    color: 'black', // Text color
+                    
+                    backgroundImage: item.businessName === 'TEST 2'
+                    ? `url(${process.env.PUBLIC_URL}/assets/coffee.png)`
+                    : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
+
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center', // Center the background image
+                    backgroundSize: '50px 50px',
+                    textAlign: 'center',
+                    textTransform: 'uppercase', // To uppercase the text
+                    fontSize: '12px', // Adjust the font size
                   }}
                   basic={!businessName || businessName !== item.businessName}
-                  color={businessName === item.businessName ? 'green' : null}
+                  color={businessName === item.businessName ? '#8BCDCE' : null}
                   className={businessName === item.businessName ? 'active_2' : null}
                   onClick={() => handleBusinessNameChange(null, { value: item.businessName })}
                 >
@@ -115,16 +130,16 @@ const CreateTransaction = () => {
             <Header title="Submit Transaction" subtitle="Enter the Client Transaction" />
             <Form className="create-form">
                 <Form.Field>
-                    <label style={{ fontSize: '1.2em' }}>Select Business Name:</label>
+                    <label style={{ fontSize: '1.2em' , color: "black" }}>Select Business:</label>
                     <div className="business-buttons">
                         {businessNames.map((business, index) => (
                             <React.Fragment key={index}>{business.content}</React.Fragment>
                         ))}
                     </div>
                 </Form.Field>
-                <div style={{ marginTop: '10px' }}>
+                <div style={{ marginTop: '10px', color: "black" }}>
                 <br />
-                    <strong>Selected Business: </strong> 
+                    {/* <strong>Selected Business: </strong> 
                     <br />
                     {businessName}
                     <br />
@@ -133,12 +148,12 @@ const CreateTransaction = () => {
                     <br />
                     {benefit}
                     <br />
-                    <br />
+                    <br /> */}
                     {/* <strong>User ID: </strong> {tokenId} */}
                 </div>
                 <Form.Field>
 
-                    <label style={{ fontSize: '1.2em' }}>Costumer Bill:</label>
+                    <label style={{ fontSize: '1.2em', color: "black" }}>Costumer Bill:</label>
                     <br />
                     <input placeholder='Cost' style={{ color: 'black', fontSize: '1em', marginTop: '5px' }} onChange={(e) => setCost(e.target.value)} />
                 </Form.Field>
