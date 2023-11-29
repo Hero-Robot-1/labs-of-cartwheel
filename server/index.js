@@ -3,6 +3,9 @@ import bodyParser from 'body-parser';
 import cors  from 'cors';
 import { routes } from './routes/transactions.routes.js';
 import { db } from './models/index.js'
+import tweedService from './tweed.service.js';
+import authService from "./auth.service.js";
+import nftService from './nft.service.js';
 
 const app = express();
 
@@ -13,6 +16,48 @@ app.use(
         extended: true,
     }),
 );
+
+app.use(express.json());
+/// tweed part 
+
+const tweedClient = await tweedService.initialize();
+
+  app.post("/blockchain-id", (req, res) => {
+    const { blockchainId } = req.body;
+    nftService._setBlockchainId(blockchainId);
+  });
+
+
+  app.post("/mintNFT", (req, res) => {
+    // const { blockchainId } = req.body;
+    const NFT = nftService.mintNFT();
+    console.log("result NFT ", NFT);
+    res.send(NFT);
+  });
+
+  app.get("/user", async (req, res) => {
+    const authUser = authService.getAuthUser();
+    res.send(authUser);
+  });
+
+  app.post("/user", async (req, res) => {
+    const id = req.body.id;
+    const email = req.body.email;
+    const updatedUser = authService.updateUser({ id, email });
+    res.send(updatedUser);
+  });
+
+  app.post("/message", async (req, res) => {
+    const authenticatedUser = authService.getAuthUser();
+    const answer = await tweedClient.handleMessageFromFrontend(
+      req.body.message,
+      authenticatedUser.id,
+      authenticatedUser.email
+    );
+    res.send({ answer });
+  });
+
+  //// tweed part end 
 
 db.sequelize.sync({ force: true } )
     .then(() => {

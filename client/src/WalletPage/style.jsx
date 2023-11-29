@@ -1,0 +1,19 @@
+import styled from "styled-components";
+
+export default {
+  Card: styled.div`
+    border: 3px solid lightgrey;
+    border-radius: 40px;
+    background: #008000;
+
+  `,
+  Container: styled.div`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+    
+  `
+};

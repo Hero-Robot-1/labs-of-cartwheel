@@ -1,6 +1,9 @@
 {
   "dependencies": {
+    "@paytweed/backend-sdk": "^1.1.0",
+    "ethereumjs-tx": "^2.1.2",
     "react-confetti": "^6.1.0",
-    "react-router-dom": "^6.18.0"
+    "react-router-dom": "^6.20.0",
+    "web3": "^4.2.2"
   }
 }
