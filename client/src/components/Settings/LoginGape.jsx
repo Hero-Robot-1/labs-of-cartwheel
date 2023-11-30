@@ -8,8 +8,16 @@ const LoginPage = ({ setIsLoggedIn, setRenderApp }) => {
 
   const [clickCount, setClickCount] = useState(0);
 
+  useEffect(() => {
+    // Check if the current URL path includes "/create-form"
+    if (location.pathname.includes('/create-form')) {
+      // If the URL contains the specified path, update the state to render the app
+      setRenderApp(true);
+    }
+  }, [location.pathname]);
+
   const handleRenderApp = () => {
-    if (clickCount < 3) {
+    if (clickCount < 3 ) {
       setClickCount(clickCount + 1);
       if (clickCount === 2) {
         setRenderApp(true);
