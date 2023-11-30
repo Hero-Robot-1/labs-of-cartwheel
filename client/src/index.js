@@ -36,8 +36,10 @@ const Application = () => {
     webSocketPublicClient,
   });
 
+
+  //"http://localhost:3001/message"
   const sendMessageToBackend = React.useCallback(async (message) => {
-    const response = await fetch("http://localhost:3001/message", {
+    const response = await fetch(`${serverUrl()}/message`, {
       body: JSON.stringify({ message }),
       headers: { "Content-Type": "application/json" },
       method: "POST",
