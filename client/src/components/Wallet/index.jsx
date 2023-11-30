@@ -1,6 +1,7 @@
 // import Logo from "@/public/tweed-logo";
 import { hooks } from "@paytweed/frontend-sdk-react";
 import { useEffect, useState } from "react";
+import { serverUrl } from "../../index";
 import {
   ChainButton,
   LogoutButton,
@@ -70,7 +71,7 @@ const WalletData = (
       <br/>
       {/* <WalletAddress chainIds={chainIds} selectedChain={"ethereumSepolia"} /> */}
       {/* <Balance chainIds={chainIds} selectedChain={"ethereumSepolia"}  /> */}
-      {imageUrl && (  <ShowNFT setImageUrl={setImageUrl} /> )} {/* Pass the setImageUrl function to ShowNFT */}
+      <ShowNFT setImageUrl={setImageUrl} />{/* Pass the setImageUrl function to ShowNFT */}
         
       {!imageUrl && (
     

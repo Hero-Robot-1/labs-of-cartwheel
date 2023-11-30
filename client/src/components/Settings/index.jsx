@@ -1,5 +1,6 @@
 import { createRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { serverUrl } from "../../index";
 
 export default function SettingSection({ setIsLoggedIn, isLoggedIn }) {
   const [user, setUser] = useState({ id: "", email: "" });
