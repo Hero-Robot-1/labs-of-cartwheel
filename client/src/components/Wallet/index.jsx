@@ -45,7 +45,7 @@ const WalletData = (
 
   useEffect(() => {
     const sendSelectedChainToBackend = async () => {
-      await fetch("http://localhost:3001/blockchain-id", {
+      await fetch(`${serverUrl()}/blockchain-id`, {
         body: JSON.stringify({ blockchainId: selectedChain }),
         headers: { "Content-Type": "application/json" },
         method: "POST",
