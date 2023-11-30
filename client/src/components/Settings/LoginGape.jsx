@@ -1,10 +1,11 @@
 import React from 'react';
 import SettingSection from './index';
-import { useState } from 'react';
-
+import { useState ,useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const LoginPage = ({ setIsLoggedIn, setRenderApp }) => {
   
+  const location = useLocation();
 
   const [clickCount, setClickCount] = useState(0);
 
