@@ -2,6 +2,7 @@ import { hooks, Widget } from "@paytweed/frontend-sdk-react";
 import { useCallback, useEffect } from "react";
 import WalletData from "../components/Wallet/index.jsx";
 import S from "./style.jsx";
+import { serverUrl } from "../index";
 
 const Wallet = ({setIsLoggedIn}) => {
   const { data: walletExists, error, loading } = hooks.useWalletExists();
