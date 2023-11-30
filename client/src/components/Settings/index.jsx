@@ -9,7 +9,7 @@ export default function SettingSection({ setIsLoggedIn, isLoggedIn }) {
 
   async function fetchAuthUser() {
     try {
-      const response = await fetch("http://localhost:3001/user");
+      const response = await fetch(`${serverUrl()}/user`);
       const userData = await response.json();
       setUser(userData);
       console.log("user: ", userData);
@@ -26,7 +26,7 @@ export default function SettingSection({ setIsLoggedIn, isLoggedIn }) {
 
   async function handleLogin() {
     try {
-      const response = await fetch("http://localhost:3001/user", {
+      const response = await fetch(`${serverUrl()}/user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
