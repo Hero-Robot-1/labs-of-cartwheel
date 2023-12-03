@@ -3,10 +3,10 @@ import SettingSection from './index';
 import { useState ,useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const LoginPage = ({ setIsLoggedIn, setRenderApp }) => {
+const LoginPage = ({ setIsLoggedIn,isLoggedIn, setRenderApp }) => {
   
   const location = useLocation();
-
+  
   const [clickCount, setClickCount] = useState(0);
 
   useEffect(() => {
@@ -15,6 +15,7 @@ const LoginPage = ({ setIsLoggedIn, setRenderApp }) => {
       // If the URL contains the specified path, update the state to render the app
       setRenderApp(true);
     }
+
   }, [location.pathname]);
 
   const handleRenderApp = () => {
@@ -80,7 +81,8 @@ const LoginPage = ({ setIsLoggedIn, setRenderApp }) => {
       />
     
       {/* Setting Section */}
-      <SettingSection setIsLoggedIn={setIsLoggedIn} />
+
+      <SettingSection setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
     </div>
     </div>
   );

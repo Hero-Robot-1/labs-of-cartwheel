@@ -58,6 +58,7 @@ const WalletData = (
 
   function handleLogout() {
     logoutWallet({});
+    
     window.location.reload();
   }
 

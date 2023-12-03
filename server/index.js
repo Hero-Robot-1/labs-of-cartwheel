@@ -35,10 +35,14 @@ const tweedClient = await tweedService.initialize();
     res.send(NFT);
   });
 
+  let users = []; // Keep users in memory (for demo purposes)
+
   app.get("/user", async (req, res) => {
     const authUser = authService.getAuthUser();
+    console.log("fetching user data: " , authUser);
     res.send(authUser);
   });
+
 
   app.post("/user", async (req, res) => {
     const id = req.body.id;

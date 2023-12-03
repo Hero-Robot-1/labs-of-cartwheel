@@ -1,29 +1,43 @@
 import { createRef, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { serverUrl } from "../../index";
+import axios from "axios";
 
-export default function SettingSection({ setIsLoggedIn, isLoggedIn }) {
+
+export default function SettingSection({ setIsLoggedIn ,isLoggedIn  }) {
   const [user, setUser] = useState({ id: "", email: "" });
   const idInputRef = createRef();
   const emailInputRef = createRef();
   const navigate = useNavigate();
+  const [timestamp, setTimestamp] = useState(new Date().toISOString());
+  const [userid, setUserid] = useState('');
+  const[email, setEmail] = useState('');
+
+
+  const [APIData, setAPIData] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${serverUrl()}/userEmails`).then((response) => {
+      console.log("here response: ", response);
+      setAPIData(response.data.userEmails);
+    });
+  }, []);
+  
+  console.log("fetching the user emails : ",APIData );
+  const userId = APIData.length; 
+
+  console.log("current user id : ", userId);
 
   async function fetchAuthUser() {
     try {
       const response = await fetch(`${serverUrl()}/user`);
       const userData = await response.json();
       setUser(userData);
-      console.log("user: ", userData);
+      console.log("current user: ", userData);
     } catch (error) {
       console.error("Fetch user error:", error);
     }
   }
-
-  // useEffect(() => {
-  //   if (user.id && user.email) {
-  //     handleLogin(); // Auto-click the login button if id and email exist
-  //   }
-  // }, [user.id, user.email]);
 
   async function handleLogin() {
     try {
@@ -43,12 +57,12 @@ export default function SettingSection({ setIsLoggedIn, isLoggedIn }) {
           id: idInputRef.current.value,
           email: emailInputRef.current.value,
         });
-        await setIsLoggedIn(true); // Set login status to true
-        console.log("user logged in", user );
-        await navigate(window.location.pathname); // Redirecting to the same page
+        setIsLoggedIn(true); // Set login status to true
+        console.log("user just logged in", user);
 
-       
-
+        // Store a flag in localStorage indicating successful login
+        localStorage.setItem('loggedIn', 'true');
+        
       } else {
         console.error("Login failed:", response.statusText);
       }
@@ -58,8 +72,14 @@ export default function SettingSection({ setIsLoggedIn, isLoggedIn }) {
   }
 
   useEffect(() => {
-    fetchAuthUser();
-  }, []);
+    const isNewUser = !localStorage.getItem('loggedIn');
+
+    if (isNewUser && user.id && user.email) {
+      handleLogin();
+    } else {
+      fetchAuthUser();
+    }
+  }, [user.id, user.email]);
 
   return (
     <div
@@ -70,14 +90,11 @@ export default function SettingSection({ setIsLoggedIn, isLoggedIn }) {
         background: "#E8B64A",
         padding: 10,
         alignItems: "center",
-
-        /* Rectangle 10 */
-
       }}
     >
       <div>
         <p style={{ margin: 0 }}>
-          Get your Personal Memebership Card
+          Get your Personal Membership Card
         </p>
       </div>
       <div style={{ display: "flex", gap: 10 }}>
@@ -85,15 +102,15 @@ export default function SettingSection({ setIsLoggedIn, isLoggedIn }) {
           placeholder="email"
           defaultValue={user?.email}
           ref={emailInputRef}
-          style={{ color: "black" }} // Set text color
+          style={{ color: "black" }}
         />
         <input
           placeholder="user id"
           defaultValue={user?.id}
           ref={idInputRef}
-          style={{ color: "black" }} // Set text color
+          style={{ color: "black" }}
         />
-        <button onClick={handleLogin}>login</button>
+        <button onClick={handleLogin}>Login</button>
       </div>
     </div>
   );

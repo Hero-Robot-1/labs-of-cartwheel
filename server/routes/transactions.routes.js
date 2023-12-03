@@ -1,5 +1,6 @@
 import * as transactions from '../controllers/transactions.controller.js';
 import * as buisnessBenefits from '../controllers/buisnessBenefits.controller.js';
+import * as userEmails from '../controllers/userEmails.controller.js';
 
 import express from 'express';
 
@@ -24,5 +25,10 @@ routes.post("/buisnessBenefits", buisnessBenefits.createBuisnessBenefits);
 routes.delete("/buisnessBenefits/:id", buisnessBenefits.deleteBuisnessBenefits);
 
 routes.put("/buisnessBenefits/:id", buisnessBenefits.updateBuisnessBenefits);
+
+// user emails 
+routes.get("/userEmails", userEmails.listUserEmails);
+
+routes.post("/userEmails", userEmails.createUserEmails);
 
 
