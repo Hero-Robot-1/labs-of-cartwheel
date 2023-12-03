@@ -52,7 +52,7 @@ const squareStyle2 = {
 
 const imageStyleCoffe = {
   width: '100%',
-  height: '100%',
+  height: '50%', // Adjust the image height for positioning
   backgroundImage: `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center', // Center the background image
@@ -60,7 +60,7 @@ const imageStyleCoffe = {
 
 const imageStyleCock = {
   width: '100%',
-  height: '100%',
+  height: '50%', // Adjust the image height for positioning
   backgroundImage: `url(${process.env.PUBLIC_URL}/assets/cocktail.png)`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center', // Center the background image
@@ -68,7 +68,7 @@ const imageStyleCock = {
 
 const imageStylePizza = {
   width: '100%',
-  height: '100%',
+  height: '50%', // Adjust the image height for positioning
   backgroundImage: `url(${process.env.PUBLIC_URL}/assets/pizza.png)`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center', // Center the background image
@@ -76,7 +76,7 @@ const imageStylePizza = {
 
 const imageStyleWine = {
   width: '100%',
-  height: '100%',
+  height: '50%', // Adjust the image height for positioning
   backgroundImage: `url(${process.env.PUBLIC_URL}/assets/wine.png)`,
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center', // Center the background image
@@ -84,8 +84,10 @@ const imageStyleWine = {
 
 const textStyle = {
   textAlign: 'center',
-  // marginTop: '2px', // Adjust the spacing between image and text
+  paddingTop: '30px', // Adjust to move the text closer to the top
+  lineHeight: '1.2', // Adjust as needed for vertical alignment
   color: 'blue', // Text color
+  fontStyle: 'italic', // Set the font style to italic
 };
 
 export default BenefitImage;

@@ -41,6 +41,20 @@ const BuisnessBenefits = (sequelize) => {
   });
 };
 
+const UserEmails = (sequelize) => {
+  return sequelize.define("userEmails", {
+    email: {
+      type: STRING,
+    },
+    userid: {
+      type: STRING,
+    },
+    timestamp: {
+      type: STRING,
+    }
+  });
+};
+
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
@@ -71,5 +85,6 @@ const dbConnector = {};
 dbConnector.sequelize = sequelize;
 dbConnector.transactions = Transaction(sequelize);
 dbConnector.buisnessBenefits = BuisnessBenefits(sequelize);
+dbConnector.userEmails = UserEmails(sequelize);
 
 export const db = dbConnector;

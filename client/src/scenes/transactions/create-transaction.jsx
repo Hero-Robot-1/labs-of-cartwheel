@@ -47,8 +47,20 @@ const CreateTransaction = () => {
                     backgroundColor: '#8BCDCE', // Background color
                     color: 'black', // Text color
                     
-                    backgroundImage: item.businessName === 'TEST 2'
+                    backgroundImage: item.businessName.includes('Pizza')
+                    ? `url(${process.env.PUBLIC_URL}/assets/pizza.png)`
+                    : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
+
+                    backgroundImage: item.businessName.includes('Nahat')
                     ? `url(${process.env.PUBLIC_URL}/assets/coffee.png)`
+                    : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
+
+                    backgroundImage: item.businessName.includes('Milio')
+                    ? `url(${process.env.PUBLIC_URL}/assets/wine.png)`
+                    : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
+
+                    backgroundImage: item.businessName.includes('Marlen')
+                    ? `url(${process.env.PUBLIC_URL}/assets/cocktail.png)`
                     : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
 
                     backgroundRepeat: 'no-repeat',
@@ -72,13 +84,15 @@ const CreateTransaction = () => {
       
             // Update the state with the fetched data
             setBusinessNames(businessNamesFromAPI);
-      
+            console.log("never reaching here businessNamesFromAPI: ", businessNamesFromAPI);
             // Create a mapping of business names to benefits for easy lookup
             
             response.data.buisnessBenefits.forEach((item) => {
               businessBenefitsMap[item.businessName] = item.benefit;
             });
             setBusinessBenefits(businessBenefitsMap);
+            console.log("never reaching here businessBenefitsMap: ", businessBenefitsMap);
+
           })
           .catch((error) => {
             console.error('Error fetching data:', error);
@@ -86,11 +100,16 @@ const CreateTransaction = () => {
       }, [businessName]);
 
     const handleBusinessNameChange = (e, { value }) => {
+        console.log("businessBenefits: ", businessBenefitsMap[value]);
+        console.log("businessBenefitsMap: ", businessBenefitsMap);
+        console.log("businessBenefits 2: ", businessBenefitsMap[value]);
         
+        setBenefit(businessBenefitsMap[value])
+
         setBusinessName(value);
         console.log("business benefit: " ,value," " , businessBenefits[value]);
         // Set the benefit to the relevant benefit for the selected business
-        setBenefit(businessBenefits[value]);
+        // setBenefit(businessBenefits[value] || '');
         // Set the timestamp to the current date and time
         setTimestamp(new Date().toISOString());
         
@@ -153,7 +172,7 @@ const CreateTransaction = () => {
                 </div>
                 <Form.Field>
 
-                    <label style={{ fontSize: '1.2em', color: "black" }}>Costumer Bill:</label>
+                    <label style={{ fontSize: '1.2em', color: "black" }}>Client Bill:</label>
                     <br />
                     <input placeholder='Cost' style={{ color: 'black', fontSize: '1em', marginTop: '5px' }} onChange={(e) => setCost(e.target.value)} />
                 </Form.Field>
