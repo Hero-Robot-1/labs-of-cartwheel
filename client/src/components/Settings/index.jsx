@@ -40,6 +40,16 @@ export default function SettingSection({ setIsLoggedIn ,isLoggedIn  }) {
   }
 
   async function handleLogin() {
+    const enteredEmail = emailInputRef.current.value;
+
+  // Regular expression to check if the entered email looks like an email
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailPattern.test(enteredEmail)) {
+    // If the entered email doesn't match the pattern, display a message to the user
+    alert('Please enter a valid email address.');
+    return; // Stop further execution of the login process
+  }
     try {
       const response = await fetch(`${serverUrl()}/user`, {
         method: "POST",
@@ -105,7 +115,7 @@ export default function SettingSection({ setIsLoggedIn ,isLoggedIn  }) {
           style={{ color: "black" }}
         />
         <input
-          placeholder="user id"
+          placeholder="user password"
           defaultValue={user?.id}
           ref={idInputRef}
           style={{ color: "black" }}
