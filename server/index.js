@@ -43,7 +43,6 @@ const tweedClient = await tweedService.initialize();
     res.send(authUser);
   });
 
-
   app.post("/user", async (req, res) => {
     const id = req.body.id;
     const email = req.body.email;
