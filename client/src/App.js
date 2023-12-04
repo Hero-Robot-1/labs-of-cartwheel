@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Team from "./scenes/team";
@@ -27,6 +27,9 @@ function App() {
   const [walletAddress, setWalletAddress] = useState("");
   const [walletData, setWalletData] = useState("0");
 
+  const location = useLocation();
+  const hideTopbarAndSidebar = location.pathname.includes("/create-form");
+
   // events for the get NFT button 
   const [eventResult, setEventResult] = useState(null); // State to store event data
   const [isLoadingEvent, setIsLoadingEvent] = useState(false); // Loading state for event data
@@ -37,8 +40,11 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
+        {!hideTopbarAndSidebar && (
           <Sidebar walletData={walletData} walletIsConnected={walletIsConnected} />
+        )}
           <main className="content">
+          {!hideTopbarAndSidebar && (
             <Topbar
               walletIsConnected={walletIsConnected}
               setWalletIsConnected={setWalletIsConnected}
@@ -46,6 +52,7 @@ function App() {
               walletAddress={walletAddress}
               setWalletAddress={setWalletAddress}
             />
+          )}
             <Routes>
               <Route path="/" element={
               <Dashboard
