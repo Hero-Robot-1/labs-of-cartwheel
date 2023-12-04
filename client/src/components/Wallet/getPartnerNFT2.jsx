@@ -16,6 +16,7 @@ const GetPartnerNft2 = ({ chainIds }) => {
 
   function handleBuyNft() {
     if (walletAddresses) {
+      console.log("trying to get the NFT...");
       buyNft({ nftId: walletAddresses }); // You can access the walletAddresses data here
     } else {
       console.error("Wallet addresses not available");
