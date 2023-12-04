@@ -47,19 +47,19 @@ const CreateTransaction = () => {
                     backgroundColor: '#8BCDCE', // Background color
                     color: 'black', // Text color
                     
-                    backgroundImage: item.businessName.includes('Pizza')
+                    backgroundImage: item.businessName.includes('pizza')
                     ? `url(${process.env.PUBLIC_URL}/assets/pizza.png)`
                     : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
 
-                    backgroundImage: item.businessName.includes('Nahat')
+                    backgroundImage: item.businessName.includes('nahat')
                     ? `url(${process.env.PUBLIC_URL}/assets/coffee.png)`
                     : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
 
-                    backgroundImage: item.businessName.includes('Milio')
+                    backgroundImage: item.businessName.includes('milio')
                     ? `url(${process.env.PUBLIC_URL}/assets/wine.png)`
                     : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
 
-                    backgroundImage: item.businessName.includes('Marlen')
+                    backgroundImage: item.businessName.includes('marlen')
                     ? `url(${process.env.PUBLIC_URL}/assets/cocktail.png)`
                     : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
 
