@@ -193,8 +193,8 @@ const CreateTransaction = () => {
             </Button>
                 {formSubmitted && (
                     <Message positive>
-                        <Message.Header>Thank you!</Message.Header>
-                        <p>Your transaction has been submitted.</p>
+                        <Message.Header style={{ color: 'black', fontSize: '1em', marginTop: '5px' }}>Thank you!</Message.Header>
+                        <p style={{ color: 'black', fontSize: '1em', marginTop: '5px' }}>Your transaction has been submitted.</p>
                     </Message>
                 )}
             </Form>
