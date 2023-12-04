@@ -47,19 +47,19 @@ const CreateTransaction = () => {
                     backgroundColor: '#8BCDCE', // Background color
                     color: 'black', // Text color
                     
-                    backgroundImage: item.businessName.includes('Pizza')
+                    backgroundImage: item.businessName.includes('pizza')
                     ? `url(${process.env.PUBLIC_URL}/assets/pizza.png)`
                     : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
 
-                    backgroundImage: item.businessName.includes('Nahat')
+                    backgroundImage: item.businessName.includes('nahat')
                     ? `url(${process.env.PUBLIC_URL}/assets/coffee.png)`
                     : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
 
-                    backgroundImage: item.businessName.includes('Milio')
+                    backgroundImage: item.businessName.includes('milio')
                     ? `url(${process.env.PUBLIC_URL}/assets/wine.png)`
                     : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
 
-                    backgroundImage: item.businessName.includes('Marlen')
+                    backgroundImage: item.businessName.includes('marlen')
                     ? `url(${process.env.PUBLIC_URL}/assets/cocktail.png)`
                     : `url(${process.env.PUBLIC_URL}/assets/coffee.png)`,
 
@@ -193,8 +193,8 @@ const CreateTransaction = () => {
             </Button>
                 {formSubmitted && (
                     <Message positive>
-                        <Message.Header>Thank you!</Message.Header>
-                        <p>Your transaction has been submitted.</p>
+                        <Message.Header style={{ color: 'black', fontSize: '1em', marginTop: '5px' }}>Thank you!</Message.Header>
+                        <p style={{ color: 'black', fontSize: '1em', marginTop: '5px' }}>Your transaction has been submitted.</p>
                     </Message>
                 )}
             </Form>
