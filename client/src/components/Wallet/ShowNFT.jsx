@@ -1,7 +1,7 @@
 import React from "react";
 import { hooks } from "@paytweed/frontend-sdk-react";
 
-const ShowNFT = ({ chainIds ,setImageUrl }) => {
+const ShowNFT = ({ chainIds ,imageUrl }) => {
   const {
     data: walletAddresses,
     error: walletAddressError,
@@ -10,23 +10,12 @@ const ShowNFT = ({ chainIds ,setImageUrl }) => {
     blockchainIds: chainIds,
   });
 
-  const { data: nftData, error: nftError, loading: nftLoading } = hooks.useNftBalance();
-
-  console.log("Wallet Addresses: ", walletAddresses);
-
-  console.log("NFT Data + contract: ", nftData);
-
-  console.log("NFT Data: ", nftData?.ethereumSepolia[0]?.tokenMedia[0]?.gateway);
-
-  const imageUrl = nftData?.ethereumSepolia[0]?.tokenMedia[0]?.gateway
-
-  if (imageUrl) { setImageUrl(true)}
 
   return (
     <>
     {imageUrl && (
       <div style={{ margin: '5px auto', fontWeight: 'bold', color: 'blue' }}>
-        My Card - Show it and get Discounts!
+        My Card - Present it to get Discounts!
       </div>
     )}
     <div style={{ margin: '5px auto', paddingTop: '5px', paddingBottom: '5px' }}>
