@@ -32,17 +32,43 @@ const WalletData = (
 
   const [logoutWallet] = hooks.useWalletLogout();
   const [imageUrl, setImageUrl] = useState(null); // Define imageUrl and setImageUrl
+  const [showNFT, setShowNFT] = useState(false);
 
-  
   const chainIds = blockchainList?.map((chain) => chain.chainId);
   console.log('Blockchain List:', blockchainList);
   console.log('Chain IDs:', chainIds);
 
 
+  let { data: nftData, error: nftError, loading: nftLoading } = hooks.useNftBalance()
+  
+  console.log("nftdata change : " , nftData);
+
+  useEffect(() => {
+    if (nftData?.ethereumSepolia) {
+      let foundMatch = false;
+
+      nftData.ethereumSepolia.forEach((nft) => {
+        if (nft.tokenAddress.toLowerCase() === process.env.REACT_APP_CONTRACT_ADDRESS.toLowerCase()) {
+          setImageUrl(nft.tokenMedia[0]?.gateway);
+          foundMatch = true;
+          // window.location.reload(); // This line reloads the screen
+        }
+      });
+
+      if (!foundMatch) {
+        setImageUrl(null);
+      }
+    } else {
+      setImageUrl(null);
+    }
+  }, [nftData]); // Dependency: nftData changes trigger this logic
+
+  
   useEffect(() => {
     if (!blockchainList) return;
     setSelectedChain(chainIds?.[3]);
   }, [blockchainList]);
+
 
   useEffect(() => {
     const sendSelectedChainToBackend = async () => {
@@ -72,11 +98,11 @@ const WalletData = (
       <br/>
       {/* <WalletAddress chainIds={chainIds} selectedChain={"ethereumSepolia"} /> */}
       {/* <Balance chainIds={chainIds} selectedChain={"ethereumSepolia"}  /> */}
-      <ShowNFT setImageUrl={setImageUrl} />{/* Pass the setImageUrl function to ShowNFT */}
+      {(imageUrl && <ShowNFT setImageUrl={setImageUrl} imageUrl={imageUrl} /> )}
         
       {!imageUrl && (
     
-        <GetPartnerNft  chainIds={chainIds} selectedChain={"ethereumSepolia"}/>
+        <GetPartnerNft setShowNFT={setShowNFT} imageUrl={imageUrl} setImageUrl={setImageUrl} chainIds={chainIds} selectedChain={"ethereumSepolia"}/>
         )}
      
       {/* <Menu>
