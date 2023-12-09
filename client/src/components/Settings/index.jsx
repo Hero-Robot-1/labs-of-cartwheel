@@ -120,7 +120,8 @@ export default function SettingSection({ setIsLoggedIn ,isLoggedIn  }) {
           ref={idInputRef}
           style={{ color: "black" }}
         />
-        <button onClick={handleLogin}>Lets Go</button>
+        <button
+         onClick={handleLogin}>Go</button>
       </div>
     </div>
   );
