@@ -1,6 +1,6 @@
 class AuthService {
-    _userId  = "xxxx"
-    _userEmail = "hello@paytweed.com"
+    _userId  = ""
+    _userEmail = ""
 
     getAuthUser() {
         console.log("fetching user auto  : ", this._userId , this._userEmail );
