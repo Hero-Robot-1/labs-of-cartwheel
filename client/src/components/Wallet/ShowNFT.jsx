@@ -14,8 +14,8 @@ const ShowNFT = ({ chainIds ,imageUrl }) => {
   return (
     <>
     {imageUrl && (
-      <div style={{ margin: '5px auto', fontWeight: 'bold', color: 'blue' }}>
-        My Card - Present it to get Discounts!
+      <div style={{ margin: '5px auto', color: '#0E4B8A', font: "rubik"  }}>
+        Present your Card to get Discounts
       </div>
     )}
     <div style={{ margin: '5px auto', paddingTop: '5px', paddingBottom: '5px' }}>
