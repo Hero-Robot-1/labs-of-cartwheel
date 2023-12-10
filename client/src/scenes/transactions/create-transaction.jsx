@@ -67,6 +67,8 @@ const CreateTransaction = () => {
                     textAlign: 'center',
                     textTransform: 'uppercase', // To uppercase the text
                     fontSize: '13px', // Adjust the font size
+                    borderRadius: '15px', // Add rounded corners
+
                   }}
                   basic={!businessName || businessName !== item.businessName}
                   color={businessName === item.businessName ? '#8BCDCE' : null}
@@ -114,15 +116,6 @@ const CreateTransaction = () => {
     };
 
     const postData = () => {
-
-        // Make the post request
-        console.log("post command to send transaction with this data: ", id,
-        benefit,
-        businessName,
-        cost,
-        tokenId,
-        timestamp);
-
         axios.post(`${serverUrl()}/transactions`, {
             id,
             benefit,
@@ -136,7 +129,6 @@ const CreateTransaction = () => {
         // Reset the form values and set the formSubmitted flag to true
         setId('');
         setCost('')// Clear the cost field after a slight delay
-        console.log("new cost is : ", cost);
         setBenefit('');
         setBusinessName('');
         setTokenID(tokenIdFromUrl);
