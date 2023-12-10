@@ -46,7 +46,7 @@ const CreateTransaction = () => {
                     marginTop: '10px', // Margin between buttons
                     padding: '5px 10px', // Adjust padding as needed
                     backgroundColor: '#8BCDCE', // Background color
-                    color: 'black', // Text color
+                    color: '#2185d0', // Text color
                     
                     backgroundImage: item.businessName.includes('papi')
                     ? `url(${process.env.PUBLIC_URL}/assets/pizza.png)`
@@ -62,11 +62,11 @@ const CreateTransaction = () => {
                     : '#8BCDCE',
 
                     backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center', // Center the background image
+                    backgroundPosition: 'center 40%', // Center the background image
                     backgroundSize: '50px 50px',
                     textAlign: 'center',
                     textTransform: 'uppercase', // To uppercase the text
-                    fontSize: '12px', // Adjust the font size
+                    fontSize: '13px', // Adjust the font size
                   }}
                   basic={!businessName || businessName !== item.businessName}
                   color={businessName === item.businessName ? '#8BCDCE' : null}
@@ -114,6 +114,7 @@ const CreateTransaction = () => {
     };
 
     const postData = () => {
+
         // Make the post request
         console.log("post command to send transaction with this data: ", id,
         benefit,
@@ -134,9 +135,10 @@ const CreateTransaction = () => {
 
         // Reset the form values and set the formSubmitted flag to true
         setId('');
+        setCost('')// Clear the cost field after a slight delay
+        console.log("new cost is : ", cost);
         setBenefit('');
         setBusinessName('');
-        setCost('');
         setTokenID(tokenIdFromUrl);
         setTimestamp(new Date().toISOString());
         setFormSubmitted(true);
@@ -144,10 +146,9 @@ const CreateTransaction = () => {
 
     return (
         <Box m="20px">
-            <Header title="Submit Transaction" subtitle="Enter the Client Transaction" />
+            <Header title="Submit Transaction" subtitle="Select Business and Enter Cost" />
             <Form className="create-form">
                 <Form.Field>
-                    <label style={{ fontSize: '1.2em' , color: "black" }}>Select Business:</label>
                     <div className="business-buttons">
                         {businessNames.map((business, index) => (
                             <React.Fragment key={index}>{business.content}</React.Fragment>
@@ -168,27 +169,32 @@ const CreateTransaction = () => {
                     <br /> */}
                     {/* <strong>User ID: </strong> {tokenId} */}
                 </div>
-                <Form.Field>
+                <Form.Field style={{ display: 'flex', alignItems: 'center' }}>
+          <br />
+          <input
+            placeholder='Cost'
+            value={cost} // Ensure the value is bound to the cost state
+            style={{ color: 'black', fontSize: '1.3em', marginTop: '5px' }}
+            onChange={(e) => setCost(e.target.value)}
+              /> 
+            <Button
+            onClick={postData}
+            disabled={(!cost || !businessName)} // Disable the button if the cost is empty
+            style={{
+              marginLeft: "10px", // Adjust margin between the input and the button
+              padding: "4px 15px", // Adjust padding as needed
+              borderRadius: "4px", // Square frame with border radius
+              backgroundColor: (!cost || !businessName) ? "gray" : "#2185d0", // Change color to gray if disabled
+              color: "#fff", // Text color
+              border: "2px solid", // Border style
+              borderColor: "#2185d0", // Border color
+              cursor: (!cost || !businessName) ? "not-allowed" : "pointer", // Change cursor if disabled
 
-                    <label style={{ fontSize: '1.2em', color: "black" }}>Client Bill:</label>
-                    <br />
-                    <input placeholder='Cost' style={{ color: 'black', fontSize: '1em', marginTop: '5px' }} onChange={(e) => setCost(e.target.value)} />
-                </Form.Field>
-                <Button
-                onClick={postData}
-                style={{
-                    marginRight: "10px", // Margin between buttons
-                    marginTop: "10px", // Margin between buttons
-                    padding: "10px 20px", // Adjust padding as needed
-                    borderRadius: "4px", // Square frame with border radius
-                    backgroundColor: "#2185d0", // Background color
-                    color: "#fff", // Text color
-                    border: "2px solid", // Border style
-                    borderColor: "#2185d0", // Border color
-                  }}
-                        >
-                Submit
-            </Button>
+            }}
+          >
+            Submit
+          </Button>
+        </Form.Field>
                 {formSubmitted && (
                     <Message positive>
                         <Message.Header style={{ color: 'black', fontSize: '1em', marginTop: '5px' }}>Thank you!</Message.Header>
