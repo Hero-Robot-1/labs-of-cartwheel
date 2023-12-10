@@ -94,7 +94,7 @@ const WalletData = (
 
     <Wrapper style={{ backgroundColor: '#FFF9EF'  }}>
       
-      <Title style={{ fontWeight: 'bold', color: '#131d5c' , fontStyle:"italic"}}>Lo Frayerim Club</Title>
+      <Title style={{ fontWeight: 'bold', color: '#0E4B8A' , font: "rubic"}}>Lo Frayerim Club</Title>
       <br/>
       {/* <WalletAddress chainIds={chainIds} selectedChain={"ethereumSepolia"} /> */}
       {/* <Balance chainIds={chainIds} selectedChain={"ethereumSepolia"}  /> */}
