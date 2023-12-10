@@ -93,36 +93,46 @@ export default function SettingSection({ setIsLoggedIn ,isLoggedIn  }) {
 
   return (
     <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      gap: 10,
+      background: "#E8B64A",
+      padding: 10,
+      alignItems: "center",
+    }}
+  >
+    <div>
+      <p style={{ margin: 5 ,color: "#0E4B8A", fontSize: "large"}}>Get your Membership Card</p>
+    </div>
+    <div style={{ marginBottom: 10 }}>
+      <input
+        placeholder="email"
+        defaultValue={user?.email}
+        ref={emailInputRef}
+        style={{ color: "black", marginBottom: 10, width: "300px" }}
+      />
+      <input
+        placeholder="user password"
+        defaultValue={user?.id}
+        ref={idInputRef}
+        type="password"
+        style={{ color: "black", marginBottom: 10, width: "300px" }}
+      />
+    </div>
+    <button
+      onClick={handleLogin}
       style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 10,
-        background: "#E8B64A",
-        padding: 10,
-        alignItems: "center",
+        background: "#0E4B8A",
+        color: "#fff",
+        border: "2px solid #0E4B8A",
+        borderRadius: "10px",
+        padding: "10px 20px",
+        cursor: "pointer",
       }}
     >
-      <div>
-        <p style={{ margin: 0 }}>
-          Get your Personal Membership Card
-        </p>
-      </div>
-      <div style={{ display: "flex", gap: 10 }}>
-        <input
-          placeholder="email"
-          defaultValue={user?.email}
-          ref={emailInputRef}
-          style={{ color: "black" }}
-        />
-        <input
-          placeholder="user password"
-          defaultValue={user?.id}
-          ref={idInputRef}
-          style={{ color: "black" }}
-        />
-        <button
-         onClick={handleLogin}>Go</button>
-      </div>
-    </div>
+      Lets Go
+    </button>
+  </div>
   );
 }

@@ -5,22 +5,24 @@ const BenefitImage = () => {
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div style={{ display: 'flex' }}> {/* First row */}
         <div style={squareStyle2}>
-          <div style={imageStyleCock}></div>
-          <div style={textStyle}>15% הנחה במרלן</div>
+        <div style={imageStylePizza}></div>
+          <div style={textStyle}> 15% <br/> הנחה בפאפי פיצה </div>
+         
         </div>
         <div style={squareStyle1}>
           <div style={imageStyleWine}></div>
-          <div style={textStyle}>15% הנחה במיליו</div>
+          <div style={textStyle}>15% <br/> הנחה במיליו</div>
         </div>
       </div>
       <div style={{ display: 'flex', marginTop: '20px' }}> {/* Second row */}
         <div style={squareStyle1}>
           <div style={imageStyleCoffe}></div>
-          <div style={textStyle}>10% הנחה בקפה נחת </div>
+          <div style={textStyle}>10% <br/>הנחה בקפה נחת </div>
         </div>
         <div style={squareStyle2}>
-          <div style={imageStylePizza}></div>
-          <div style={textStyle}> הנחה בפאפי פיצה 15% </div>
+        <div style={imageStyleCock}></div>
+          <div style={textStyle}>הטבות נוספות בקרוב</div>
+         
         </div>
       </div>
     </div>
@@ -86,8 +88,9 @@ const textStyle = {
   textAlign: 'center',
   paddingTop: '30px', // Adjust to move the text closer to the top
   lineHeight: '1.2', // Adjust as needed for vertical alignment
-  color: 'blue', // Text color
-  fontStyle: 'italic', // Set the font style to italic
+  color: '#0E4B8A', // Text color
+  font: "rubik"
+  // fontStyle: 'italic', // Set the font style to italic
 };
 
 export default BenefitImage;
