@@ -95,7 +95,6 @@ const WalletData = (
     <Wrapper style={{ backgroundColor: '#FFF9EF'  }}>
       
       <Title style={{ fontWeight: 'bold', color: '#0E4B8A' , font: "rubic"}}>Lo Frayerim Club</Title>
-      <br/>
       {/* <WalletAddress chainIds={chainIds} selectedChain={"ethereumSepolia"} /> */}
       {/* <Balance chainIds={chainIds} selectedChain={"ethereumSepolia"}  /> */}
       {(imageUrl && <ShowNFT setImageUrl={setImageUrl} imageUrl={imageUrl} /> )}
@@ -112,13 +111,11 @@ const WalletData = (
       </Menu> */}
       {/* <WalletTransactionsSection selectedChain={"ethereumSepolia"} /> */}
       <br/>
-      <br/>
-      <br/>
       <BenefitImage/>
       <br/>
-      <br/>
       <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
-     
+      <br/>
+      <br/>
         <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
       </div>
       
