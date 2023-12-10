@@ -3,6 +3,7 @@ import NFTContractABI from "../contracts/NFTContract.json";
 import React, { useState, useEffect } from "react";
 
 const REACT_APP_CONTRACT_ADDRESS = process.env.REACT_APP_CONTRACT_ADDRESS;
+console.log("we are working with the contract: " , REACT_APP_CONTRACT_ADDRESS);
 
 const GetTokenMetaData = (walletData) => {
   const [isLoadingEvent, setIsLoadingEvent] = useState(true);

@@ -94,7 +94,7 @@ const BuisnessBenefits = ({ walletData, walletIsConnected }) => {
     <Box m="20px">
       <Header title="Benefits" subtitle="Club Benefits" />
       
-      {walletData === "1" ? (
+      {(walletData === "1" || walletData === "3") ? (
       <Button 
       style={{
         marginRight: "10px", // Margin between buttons
@@ -110,7 +110,7 @@ const BuisnessBenefits = ({ walletData, walletIsConnected }) => {
         Create New Benefit  
       </Button>
       ) : null}
-    {walletData === "1" ? (
+    {(walletData === "1" || walletData === "3")? (
       <Button 
       style={{
         marginRight: "10px", // Margin between buttons
@@ -127,7 +127,7 @@ const BuisnessBenefits = ({ walletData, walletIsConnected }) => {
       </Button>
      ) : null}
 
-    {walletData === "1" ? (
+    {(walletData === "1" || walletData === "3") ? (
       <Button 
       style={{
         marginRight: "10px", // Margin between buttons
