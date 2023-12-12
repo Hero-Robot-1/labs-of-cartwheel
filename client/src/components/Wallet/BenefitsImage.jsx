@@ -21,7 +21,7 @@ const BenefitImage = () => {
         </div>
         <div style={squareStyle2}>
         <div style={imageStyleCock}></div>
-          <div style={textStyle}>הטבות נוספות בקרוב</div>
+        <div style={textStyle}>15% <br/>הנחה במרלן </div>
          
         </div>
       </div>
