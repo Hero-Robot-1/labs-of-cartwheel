@@ -26,7 +26,10 @@ const ShowNFT = ({ chainIds ,imageUrl }) => {
           style={{
             display: 'block',
             margin: 'auto',
-            maxWidth: '100%',
+            maxWidth: '100%', // You can adjust this value to control the maximum width
+            height: 'auto', // This property will maintain the image's aspect ratio
+            minWidth: '300px', // Set a minimum width for larger display
+            minHeight: '300px', // Set a minimum height for larger display
             height: 'auto'
           }}
         />
