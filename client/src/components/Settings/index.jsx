@@ -87,7 +87,7 @@ export default function SettingSection({ setIsLoggedIn ,isLoggedIn  }) {
     if (isNewUser && user.id && user.email) {
       handleLogin();
     } else {
-      fetchAuthUser();
+      // fetchAuthUser();
     }
   }, [user.id, user.email]);
 
