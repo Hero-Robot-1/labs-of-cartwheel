@@ -8,7 +8,7 @@
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.5",
     "@mui/x-data-grid": "^5.17.2",
-    "@paytweed/frontend-sdk-react": "^1.1.0",
+    "@paytweed/frontend-sdk-react": "^2.0.3",
     "@wagmi/core": "^1.4.5",
     "axios": "^1.6.1",
     "ethers": "^6.8.1",
