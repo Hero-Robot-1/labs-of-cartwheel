@@ -3,7 +3,7 @@ import React from "react";
 const BenefitImage = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <div style={{ display: 'flex' }}> {/* First row */}
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         <div style={squareStyle2}>
         <div style={imageStylePizza}></div>
           <div style={textStyle}> 15% <br/> הנחה בפאפי פיצה </div>
@@ -14,7 +14,7 @@ const BenefitImage = () => {
           <div style={textStyle}>15% <br/> הנחה במיליו</div>
         </div>
       </div>
-      <div style={{ display: 'flex', marginTop: '20px' }}> {/* Second row */}
+      <div style={{ display: 'flex', marginTop: '20px' , flexWrap: 'wrap', justifyContent: 'center'}}> {/* Second row */}
         <div style={squareStyle1}>
           <div style={imageStyleCoffe}></div>
           <div style={textStyle}>10% <br/>הנחה בקפה נחת </div>
